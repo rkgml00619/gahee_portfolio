@@ -1,0 +1,98 @@
+#header {
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    z-index: 9999;
+    border-bottom: 1px solid #ccc;
+    transition: all 0.5s;
+    .center {
+        width: $center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px 0 30px;
+        .logo {
+            width: 120px;
+            position: relative;
+            img {
+                width: 100%;
+                transition: all 0.5s;
+            }
+            .logo_bk {
+                opacity: 1;
+            }
+            .logo_wh {
+                position: absolute;
+                top: 0; left: 0;
+                opacity: 0;
+            }
+        }
+        .gnb {
+            display: flex;
+            li {
+                margin-left: 40px;
+                &:hover {
+                    a {
+                        &::before {
+                            top: -8px; left: 2px;
+                            opacity: 1;
+                        }
+                    }
+                }
+                a {
+                    font-size: 18px;
+                    font-weight: 300;
+                    color: #000;
+                    position: relative;
+                    &::before {
+                        content: "";
+                        display: block;
+                        width: 7px; height: 7px;
+                        border-radius: 100%;
+                        position: absolute;
+                        top: -30px; left: 0;
+                        background: #f53024;
+                        opacity: 0;
+                        transition: all 0.5s;
+                    }
+                }
+            }
+            li.on {
+                a {
+                    &::before {
+                        top: -8px; left: 2px;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#header.on {
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    .center {
+        .logo {
+            .logo_bk {
+                opacity: 0;
+            }
+            .logo_wh {
+                opacity: 1;
+            }
+        }
+        .gnb  {
+            li {
+                a {
+                    color: #fff;
+                    &::before {
+                        background: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
