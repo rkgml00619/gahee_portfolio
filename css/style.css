@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
 * {
   margin: 0;
   padding: 0;
@@ -374,6 +373,39 @@ body {
   color: #fff;
   position: relative;
 }
+.portfolio .center .portfolioConts .tabConts .arrowWrap {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  display: flex;
+  z-index: 20;
+}
+.portfolio .center .portfolioConts .tabConts .arrowWrap a {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  background: #555;
+  border-radius: 100%;
+  margin-left: 10px;
+  transition: all 0.5s;
+}
+.portfolio .center .portfolioConts .tabConts .arrowWrap a:hover {
+  background: #bc0400;
+}
+.portfolio .center .portfolioConts .tabConts .arrowWrap a:hover .arrowIcon {
+  opacity: 1;
+}
+.portfolio .center .portfolioConts .tabConts .arrowWrap a .arrowIcon {
+  height: 40%;
+  opacity: 0.4;
+  transition: all 0.5s;
+}
+.portfolio .center .portfolioConts .tabConts .arrowWrap a.next .arrowIcon {
+  transform: rotate(180deg);
+}
 .portfolio .center .portfolioConts .tabConts .tabList {
   position: absolute;
   width: 100%;
@@ -387,9 +419,47 @@ body {
   width: 48%;
   height: 100vh;
   overflow: hidden;
+  position: relative;
+}
+.portfolio .center .portfolioConts .tabConts .tabList .left .imgArrowWrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  z-index: 20;
+}
+.portfolio .center .portfolioConts .tabConts .tabList .left .imgArrowWrap a {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  background: rgba(0, 0, 0, 0.5);
+  transition: all 0.5s;
+}
+.portfolio .center .portfolioConts .tabConts .tabList .left .imgArrowWrap a:hover {
+  background: #bc0400;
+}
+.portfolio .center .portfolioConts .tabConts .tabList .left .imgArrowWrap a:hover .arrowIcon {
+  opacity: 1;
+}
+.portfolio .center .portfolioConts .tabConts .tabList .left .imgArrowWrap a .arrowIcon {
+  height: 40%;
+  opacity: 0.4;
+  transition: all 0.5s;
+}
+.portfolio .center .portfolioConts .tabConts .tabList .left .imgArrowWrap a.next .arrowIcon {
+  transform: rotate(180deg);
 }
 .portfolio .center .portfolioConts .tabConts .tabList .left img {
+  position: absolute;
   width: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.portfolio .center .portfolioConts .tabConts .tabList .left img.on {
+  opacity: 1;
 }
 .portfolio .center .portfolioConts .tabConts .tabList .right {
   width: 48%;
@@ -669,11 +739,48 @@ body {
   overflow: hidden;
   display: flex;
   justify-content: space-between;
+  position: relative;
+}
+.otherWork .otherWork.modal .center .arrowWrap {
+  width: auto;
+  position: absolute;
+  bottom: 0;
+  right: 30%;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.otherWork .otherWork.modal .center .arrowWrap a {
+  background: #bc0400;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  box-sizing: border-box;
+  transition: all 0.5s;
+}
+.otherWork .otherWork.modal .center .arrowWrap a:hover {
+  background: #9b0300;
+}
+.otherWork .otherWork.modal .center .arrowWrap a:hover .arrowIcon {
+  opacity: 1;
+}
+.otherWork .otherWork.modal .center .arrowWrap a .arrowIcon {
+  height: 40%;
+  opacity: 0.6;
+  transition: all 0.5s;
+}
+.otherWork .otherWork.modal .center .arrowWrap a.next .arrowIcon {
+  transform: rotate(180deg);
 }
 .otherWork .otherWork.modal .center .left {
   width: 70%;
   height: 100%;
   overflow: auto;
+  position: relative;
+  background: #fff;
 }
 .otherWork .otherWork.modal .center .left::-webkit-scrollbar {
   width: 4px;
@@ -683,7 +790,17 @@ body {
   background-color: #000;
 }
 .otherWork .otherWork.modal .center .left img {
+  position: absolute;
   width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  display: none;
+  transition: all 0.5s;
+}
+.otherWork .otherWork.modal .center .left img.on {
+  display: block;
+  opacity: 1;
 }
 .otherWork .otherWork.modal .center .right {
   width: 30%;
@@ -725,7 +842,7 @@ body {
   border: 1px solid #bc0400;
 }
 .otherWork .otherWork.modal .center .right .contentWrap .content {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 .otherWork .otherWork.modal .center .right .contentWrap .content:last-child {
   margin-bottom: 0;
@@ -737,7 +854,6 @@ body {
   line-height: 1.4;
   word-break: keep-all;
   color: #000;
-  margin-bottom: 10px;
   display: flex;
   align-items: center;
 }
