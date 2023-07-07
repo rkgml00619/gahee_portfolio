@@ -257,60 +257,34 @@
                         width: 48%; height: 100vh;
                         overflow: hidden;
                         position: relative;
-                        // .circleWrap {
-                        //     width: 100%;
-                        //     display: flex;
-                        //     // justify-content: center;
-                        //     align-items: center;
-                        //     > ul {
-                        //         display: flex;
-                        //         align-items: flex-end;
-                        //         li {
-                        //             &:hover {
-                        //                 a {
-                        //                     background: #666;
-                        //                     width: 18px; height: 18px;
-                        //                 }
-                        //             }
-                        //             a {
-                        //                 display: inline-block;
-                        //                 width: 18px; height: 12px;
-                        //                 background: #555;
-                        //                 box-sizing: border-box;
-                        //                 transition: all 0.5s;
-                        //             }
-                        //         }
-                        //         li.on {
-                        //             a {
-                        //                 background: $ptColor;
-                        //                 width: 18px; height: 18px;
-                        //             }
-                        //         }
-                        //     }
-                        // }
                         
                         .imgArrowWrap {
                             position: absolute;
-                            top: 0; left: 0;
+                            top: 0; right: 0;
                             display: flex;
                             z-index: 20;
                             a {
-                                width: 60px; height: 60px;
+                                width: 50px; height: 50px;
                                 display: flex;
                                 align-items: center;
                                 justify-content: center;
                                 background: transparent;
                                 background: rgba(0,0,0, 0.5);
+                                border: 1px solid rgba(255,255,255,0.4);
                                 transition: all 0.5s;
+                                &:last-child {
+                                    border-left: 0;
+                                }
                                 &:hover {
                                     background: $ptColor;
+                                    border-color: $ptColor;
                                     .arrowIcon {
                                         opacity: 1;
                                     }
                                 }
                                 .arrowIcon {
-                                    height: 40%;
-                                    opacity: 0.4;
+                                    width: 12%;
+                                    opacity: 0.5;
                                     transition: all 0.5s;
                                 }
                             }
@@ -378,6 +352,28 @@
                                 line-height: 1.4;
                                 word-break: keep-all;
                             }
+                            .linkText {
+                                display: flex;
+                                align-items: center;
+                                font-size: 18px;
+                                font-weight: 200;
+                                color: #fff;
+                                line-height: 1.4;
+                                word-break: keep-all;
+                                transition: all 0.5s;
+                                &:hover {
+                                    span.linkIcon {
+                                        color: $ptColor;
+                                        transform: rotate(-40deg);
+                                    }
+                                }
+                                span.linkIcon {
+                                    transform: rotate(0);
+                                    margin-right: 5px;
+                                    transition: all 0.5s;
+                                    color: #fff;
+                                }
+                            }
                             .detailText {
                                 width: calc(100% - 120px);
                                 font-size: 18px;
@@ -390,6 +386,9 @@
                                     font-size: 18px;
                                     font-weight: 200;
                                     margin-bottom: 30px;
+                                    &:last-child {
+                                        margin-bottom: 0;
+                                    }
                                     li {
                                         margin-bottom: 10px;
                                         &:first-child {
@@ -835,7 +834,7 @@
                                 color: #fff;
                                 font-size: 26px;
                                 margin-right: 10px;
-                                font-variation-settings: "wght" 200;
+                                // font-variation-settings: "wght" 200;
                                 transform: rotate(0);
                                 transition: all 0.5s;
                             }

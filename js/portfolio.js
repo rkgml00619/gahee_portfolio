@@ -1,5 +1,5 @@
 const portfolio = document.querySelector(".portfolio");
-const portfolioNextSection = document.querySelector(".otherWork ");
+const portfolioNextSection = document.querySelector(".otherWork");
 const portfolioTab = document.querySelector(".portfolio .portfolioConts");
 const portfolioMenu = document.querySelectorAll(".portfolio .tabMenu li");
 const portfolioConts = document.querySelectorAll(".portfolio .tabConts .tabList");
@@ -11,10 +11,15 @@ const imgPrev = document.querySelector(".portfolio .center .portfolioConts .tabC
 let tabCount = 0;
 let autoTab;
 let check = true;
+
 let contsImgs;
+let autoImgChange;
 let imgCount = 0;
 
+
+imgChange(0);
 portfolioConts[0].classList.add("on");
+
 
 // 탭메뉴 클릭 시 변경
 for(let i = 0; i < portfolioMenu.length; i++){
@@ -42,7 +47,7 @@ window.addEventListener("scroll", function(){
                 }
 
                 tabChange(tabCount);
-            }, 3000);
+            }, 4000);
         }
     }
     else {
@@ -50,7 +55,8 @@ window.addEventListener("scroll", function(){
             clearInterval(autoTab);
         }
     }
-})
+});
+
 
 // 탭 전체에 마우스 호버 시 자동실행 멈춤, 재실행
 portfolioTab.onmouseenter = function(){
@@ -65,7 +71,7 @@ portfolioTab.onmouseleave = function(){
             tabCount++;
         }
         tabChange(tabCount);
-    }, 3000);
+    }, 4000);
 }
 
 // 포트폴리오 컨텐츠 좌우 넘김
@@ -98,49 +104,9 @@ portFolioPrev.onclick = function(e){
 }
 
 
-function imgChange(){
-    for(let i = 0; i < portfolioConts.length; i++){
-        if(portfolioConts[i].classList.contains("on")){
-            contsImgs = portfolioConts[i].querySelectorAll(".left > img");
-
-            contsImgs[0].classList.add("on");
-
-            
-            imgNext.onclick = function(e){
-                e.preventDefault();
-
-                if(imgCount === contsImgs.length - 1){
-                    imgCount = 0;
-                }
-                else {
-                    imgCount++;
-                }
-                contsImgs.forEach(function(img){
-                    img.classList.remove("on");
-                })
-                contsImgs[imgCount].classList.add("on");
-            }
-            imgPrev.onclick = function(e){
-                e.preventDefault();
-
-                if(imgCount === 0){
-                    imgCount = contsImgs.length - 1;
-                }
-                else {
-                    imgCount--;
-                }
-                contsImgs.forEach(function(img){
-                    img.classList.remove("on");
-                })
-                contsImgs[imgCount].classList.add("on");
-            }
-        }
-    }
-}
-
-
 // 탭 변경 리팩토링
 function tabChange(index){
+    // 탭리스트 변경작업
     portfolioMenu.forEach(function(menu, idx){
         menu.classList.remove("on");
         portfolioConts[idx].classList.remove("on");
@@ -154,5 +120,43 @@ function tabChange(index){
         portfolioConts[index].style.transform = "translateY(0)";
     }, 1);
 
-    imgChange();
+    imgChange(tabCount);
+}
+
+// 탭리스트의 이미지 변경작업 리팩토링
+function imgChange(index){
+    contsImgs = portfolioConts[index].querySelectorAll(".left > img");
+    contsImgs.forEach(function(img){
+        img.classList.remove("on");
+    });
+    contsImgs[0].classList.add("on");
+    
+    portfolioConts[index].querySelector(".imgArrowWrap .next").onclick = function(e){
+        e.preventDefault();
+
+        if(imgCount === contsImgs.length - 1){
+            imgCount = 0;
+        }
+        else {
+            imgCount++;
+        }
+        contsImgs.forEach(function(img){
+            img.classList.remove("on");
+        })
+        contsImgs[imgCount].classList.add("on");
+    }
+    portfolioConts[index].querySelector(".imgArrowWrap .prev").onclick = function(e){
+        e.preventDefault();
+
+        if(imgCount === 0){
+            imgCount = contsImgs.length - 1;
+        }
+        else {
+            imgCount--;
+        }
+        contsImgs.forEach(function(img){
+            img.classList.remove("on");
+        });
+        contsImgs[imgCount].classList.add("on");
+    }
 }

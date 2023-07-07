@@ -424,29 +424,34 @@ body {
 .portfolio .center .portfolioConts .tabConts .tabList .left .imgArrowWrap {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   display: flex;
   z-index: 20;
 }
 .portfolio .center .portfolioConts .tabConts .tabList .left .imgArrowWrap a {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: transparent;
   background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   transition: all 0.5s;
+}
+.portfolio .center .portfolioConts .tabConts .tabList .left .imgArrowWrap a:last-child {
+  border-left: 0;
 }
 .portfolio .center .portfolioConts .tabConts .tabList .left .imgArrowWrap a:hover {
   background: #bc0400;
+  border-color: #bc0400;
 }
 .portfolio .center .portfolioConts .tabConts .tabList .left .imgArrowWrap a:hover .arrowIcon {
   opacity: 1;
 }
 .portfolio .center .portfolioConts .tabConts .tabList .left .imgArrowWrap a .arrowIcon {
-  height: 40%;
-  opacity: 0.4;
+  width: 12%;
+  opacity: 0.5;
   transition: all 0.5s;
 }
 .portfolio .center .portfolioConts .tabConts .tabList .left .imgArrowWrap a.next .arrowIcon {
@@ -511,6 +516,26 @@ body {
   line-height: 1.4;
   word-break: keep-all;
 }
+.portfolio .center .portfolioConts .tabConts .tabList .right .content .linkText {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 200;
+  color: #fff;
+  line-height: 1.4;
+  word-break: keep-all;
+  transition: all 0.5s;
+}
+.portfolio .center .portfolioConts .tabConts .tabList .right .content .linkText:hover span.linkIcon {
+  color: #bc0400;
+  transform: rotate(-40deg);
+}
+.portfolio .center .portfolioConts .tabConts .tabList .right .content .linkText span.linkIcon {
+  transform: rotate(0);
+  margin-right: 5px;
+  transition: all 0.5s;
+  color: #fff;
+}
 .portfolio .center .portfolioConts .tabConts .tabList .right .content .detailText {
   width: calc(100% - 120px);
   font-size: 18px;
@@ -522,6 +547,9 @@ body {
   font-size: 18px;
   font-weight: 200;
   margin-bottom: 30px;
+}
+.portfolio .center .portfolioConts .tabConts .tabList .right .content .detail ul:last-child {
+  margin-bottom: 0;
 }
 .portfolio .center .portfolioConts .tabConts .tabList .right .content .detail ul li {
   margin-bottom: 10px;
@@ -966,7 +994,6 @@ body {
   color: #fff;
   font-size: 26px;
   margin-right: 10px;
-  font-variation-settings: "wght" 200;
   transform: rotate(0);
   transition: all 0.5s;
 }
