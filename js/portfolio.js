@@ -3,15 +3,16 @@ const portfolioNextSection = document.querySelector(".otherWork");
 const portfolioTab = document.querySelector(".portfolio .portfolioConts");
 const portfolioMenu = document.querySelectorAll(".portfolio .tabMenu li");
 const portfolioConts = document.querySelectorAll(".portfolio .tabConts .tabList");
+const leftImgWrap = document.querySelectorAll(".portfolio .tabConts .tabList .left");
 const portFolioNext = document.querySelector(".portfolio .center .portfolioConts .tabConts .arrowWrap a.next");
 const portFolioPrev = document.querySelector(".portfolio .center .portfolioConts .tabConts .arrowWrap a.prev");
+const imgArrowWrap = document.querySelectorAll(".portfolio .tabConts .tabList .left .imgArrowWrap");
 const imgNext = document.querySelector(".portfolio .center .portfolioConts .tabConts .tabList .left .imgArrowWrap a.next");
 const imgPrev = document.querySelector(".portfolio .center .portfolioConts .tabConts .tabList .left .imgArrowWrap a.prev");
 
 let tabCount = 0;
 let autoTab;
 let check = true;
-
 let contsImgs;
 let autoImgChange;
 let imgCount = 0;
@@ -57,7 +58,23 @@ window.addEventListener("scroll", function(){
     }
 });
 
-
+window.addEventListener("load", function(){
+    // 탭 전체에 마우스 호버 시 자동실행 멈춤, 재실행
+    portfolioTab.onmouseenter = function(){
+        clearInterval(autoTab);
+    }
+    portfolioTab.onmouseleave = function(){
+        autoTab = setInterval(function(){    
+            if(tabCount >= portfolioMenu.length - 1){
+                tabCount = 0;
+            }
+            else {
+                tabCount++;
+            }
+            tabChange(tabCount);
+        }, 4000);
+    }
+});
 // 탭 전체에 마우스 호버 시 자동실행 멈춤, 재실행
 portfolioTab.onmouseenter = function(){
     clearInterval(autoTab);
@@ -71,7 +88,7 @@ portfolioTab.onmouseleave = function(){
             tabCount++;
         }
         tabChange(tabCount);
-    }, 4000);
+    }, 1000);
 }
 
 // 포트폴리오 컨텐츠 좌우 넘김
@@ -103,6 +120,17 @@ portFolioPrev.onclick = function(e){
     tabChange(tabCount);
 }
 
+for(let i = 0; i < leftImgWrap.length; i++){
+    leftImgWrap[i].addEventListener("scroll", function(){
+        if(leftImgWrap[i].scrollTop > 50){
+            imgArrowWrap[i].style.position = "sticky";
+        }
+        else {
+            imgArrowWrap[i].style.position = "absolute";
+        }
+    });
+}
+
 
 // 탭 변경 리팩토링
 function tabChange(index){
@@ -119,9 +147,11 @@ function tabChange(index){
         portfolioConts[index].style.opacity = "1";
         portfolioConts[index].style.transform = "translateY(0)";
     }, 1);
+    portfolioConts[index].querySelector(".left").scrollTop = 0;
 
     imgChange(tabCount);
 }
+
 
 // 탭리스트의 이미지 변경작업 리팩토링
 function imgChange(index){
@@ -144,6 +174,7 @@ function imgChange(index){
             img.classList.remove("on");
         })
         contsImgs[imgCount].classList.add("on");
+        portfolioConts[index].querySelector(".left").scrollTop = 0;
     }
     portfolioConts[index].querySelector(".imgArrowWrap .prev").onclick = function(e){
         e.preventDefault();
@@ -158,5 +189,6 @@ function imgChange(index){
             img.classList.remove("on");
         });
         contsImgs[imgCount].classList.add("on");
+        portfolioConts[index].querySelector(".left").scrollTop = 0;
     }
 }

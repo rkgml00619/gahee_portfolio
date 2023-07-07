@@ -7,6 +7,16 @@ h1, h2, h3, h4, h5, h6 { font-size: 100%;}
 img, video { vertical-align: top;}
 input, button { outline: none;}
 
+// 스크롤바 숨김
+body{
+    -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
 // 공통
 $center: 80%;
 $smallCenter: 65%;

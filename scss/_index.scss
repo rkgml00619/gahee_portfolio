@@ -256,12 +256,22 @@
                     .left { 
                         width: 48%; height: 100vh;
                         overflow: hidden;
+                        overflow-y: scroll;
                         position: relative;
+                        background: #444;
+                        &::-webkit-scrollbar {
+                            width: 6px;
+                            background: rgba(255, 255, 255, 0.15);
+                        }
+                        &::-webkit-scrollbar-thumb {
+                            background: rgba(255, 255, 255, 0.3);
+                        }
                         
                         .imgArrowWrap {
                             position: absolute;
                             top: 0; right: 0;
                             display: flex;
+                            justify-content: flex-end;
                             z-index: 20;
                             a {
                                 width: 50px; height: 50px;
@@ -270,7 +280,8 @@
                                 justify-content: center;
                                 background: transparent;
                                 background: rgba(0,0,0, 0.5);
-                                border: 1px solid rgba(255,255,255,0.4);
+                                border: 1px solid rgba(255,255,255,0.3);
+                                box-sizing: border-box;
                                 transition: all 0.5s;
                                 &:last-child {
                                     border-left: 0;
@@ -278,12 +289,15 @@
                                 &:hover {
                                     background: $ptColor;
                                     border-color: $ptColor;
+                                    &:first-child {
+                                        border-right-color: $ptColor;
+                                    }
                                     .arrowIcon {
                                         opacity: 1;
                                     }
                                 }
                                 .arrowIcon {
-                                    width: 12%;
+                                    width: 20%;
                                     opacity: 0.5;
                                     transition: all 0.5s;
                                 }
@@ -294,13 +308,16 @@
                                 }
                             }
                         }
-                        img {
+                        > img {
                             position: absolute;
                             width: 100%;
                             opacity: 0;
-                            transition: all 0.5s;
+                            display: none;
+                            transition: opacity 0.5s;
+                            transition-delay: 0.1s;
                         }
-                        img.on {
+                        > img.on {
+                            display: block;
                             opacity: 1;
                         }
                     }
@@ -613,14 +630,13 @@
             .arrowWrap {
                 width: auto;
                 position: absolute;
-                bottom: 0;
-                right: 30%;
+                top: 0; right: 30%;
                 z-index: 20;
                 display: flex;
                 justify-content: space-between;
                 box-sizing: border-box;
                 a {
-                    background: $ptColor;
+                    background: rgba(0,0,0, 0.4);
                     display: none;
                     align-items: center;
                     justify-content: center;
@@ -628,13 +644,13 @@
                     box-sizing: border-box;
                     transition: all 0.5s;
                     &:hover {
-                        background: #9b0300;
+                        background: $ptColor;
                         .arrowIcon {
                             opacity: 1;
                         }
                     }
                     .arrowIcon {
-                        height: 40%;
+                        width: 20%;
                         opacity: 0.6;
                         transition: all 0.5s;
                     }
@@ -642,6 +658,18 @@
                 a.next {
                     .arrowIcon {
                         transform: rotate(180deg);
+                    }
+                }
+                a.next.on {
+                    background: $ptColor;
+                    .arrowIcon {
+                        opacity: 1;
+                    }
+                }
+                a.prev.on {
+                    background: $ptColor;
+                    .arrowIcon {
+                        opacity: 1;
                     }
                 }
             }

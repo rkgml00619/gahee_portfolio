@@ -62,8 +62,6 @@ let otherWorkData = [
                 "homepage/andoc/andoc7.png", 
                 "homepage/andoc/andoc8.png",
                 "homepage/andoc/andoc9.png",
-                "homepage/andoc/andoc10.png",
-                "homepage/andoc/andoc11.png",
             ], 
             classific: ["제작방식", "소요기간", "컨셉설명"], context: ["디자인 시안 제작", "총 2주", "어플리케이션 기능 소개를 우선으로 디자인하였으며, 각 섹션별로 세부 설명 페이지로 넘어갈 수 있도록 화면을 구성하였습니다."]},
             
@@ -269,6 +267,29 @@ for(let a = 0; a < otherTabList.length; a++){
                         otherModalImgWrap.querySelectorAll(".modalImg")[modalImgCount].classList.add("on");
                     }
 
+
+                    // 키보드 방향키 오른쪽 눌렀을 때 이미지 넘어감
+                    document.addEventListener("keydown", function(e){
+                        if(e.code === "ArrowRight"){
+                            modalImgPrev.classList.remove("on");
+                            modalImgNext.classList.add("on");
+
+                            otherModalImgWrap.querySelectorAll(".modalImg").forEach(function(img){
+                                img.classList.remove("on");
+                            });
+                        
+    
+                            if(modalImgCount === otherModalImgWrap.querySelectorAll(".modalImg").length - 1){
+                                modalImgCount = 0;
+                            }
+                            else {
+                                modalImgCount++;
+                            }
+                        
+                            otherModalImgWrap.querySelectorAll(".modalImg")[modalImgCount].classList.add("on");
+                        }
+                    });
+
                     modalImgPrev.onclick = function(e){
                         e.preventDefault();
                         
@@ -285,6 +306,32 @@ for(let a = 0; a < otherTabList.length; a++){
                     
                         otherModalImgWrap.querySelectorAll(".modalImg")[modalImgCount].classList.add("on");
                     }
+
+                    // 키보드방향키 왼쪽 눌렀을 때 이미지 변경됨
+                    document.addEventListener("keydown", function(e){
+                        if(e.code === "ArrowLeft"){
+                            modalImgNext.classList.remove("on");
+                            modalImgPrev.classList.add("on");
+
+                            otherModalImgWrap.querySelectorAll(".modalImg").forEach(function(img){
+                                img.classList.remove("on");
+                            });
+                        
+    
+                            if(modalImgCount === 0){
+                                modalImgCount = otherModalImgWrap.querySelectorAll(".modalImg").length - 1;
+                            }
+                            else {
+                                modalImgCount--;
+                            }
+                        
+                            otherModalImgWrap.querySelectorAll(".modalImg").forEach(function(img){
+                                img.classList.remove("on");
+                            });
+                        
+                            otherModalImgWrap.querySelectorAll(".modalImg")[modalImgCount].classList.add("on");
+                        }
+                    });
 
                     
                     // 타이틀 삽입

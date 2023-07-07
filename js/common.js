@@ -5,8 +5,20 @@ const bgCircle = document.querySelector(".main .bg_circleWrap");
 const profileWrap = document.querySelector("#container .profile .profileWrap");
 const otherWorkWrap = document.querySelector("#container .otherWork .otherWorkWrap");
 
+let oneCheck = true;
+
 window.addEventListener("scroll", function(){
     let windowPosition = window.scrollY;
+    
+    if(windowPosition == section[0].offsetTop){
+        if(oneCheck === true){
+            oneCheck = false;
+            bgCircle.classList.remove("on");
+            setTimeout(function(){
+                bgCircle.classList.add("on");
+            }, 100);
+        }
+    }
     
     // header on클래스 제어
     if(windowPosition <= section[1].offsetTop - 200 || windowPosition >= section[4].offsetTop - 200){
@@ -53,17 +65,26 @@ window.addEventListener("scroll", function(){
 window.addEventListener("wheel", function(e){
     let windowPosition = window.scrollY;
     
-    if(windowPosition < section[1].offsetTop - 400 && e.deltaY < 0){
+    if(windowPosition == section[0].offsetTop && e.deltaY < 0){
         bgCircle.classList.remove("on");
         setTimeout(function(){
             bgCircle.classList.add("on");
         }, 100);
     }
-})
+});
+
+document.onkeydown = function(e){
+    if(e.code === "Home"){
+        bgCircle.classList.remove("on");
+        setTimeout(function(){
+            bgCircle.classList.add("on");
+        }, 100);
+    }
+}
 
 // 처음 화면에서의 main 섹션 circle 애니메이션 제어
 window.addEventListener("load", function(){
     setTimeout(function(){
         bgCircle.classList.add("on");
     }, 100);
-})
+});
