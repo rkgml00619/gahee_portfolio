@@ -259,12 +259,15 @@
                         overflow-y: scroll;
                         position: relative;
                         background: #444;
+                        -ms-overflow-style: none;
+                        
                         &::-webkit-scrollbar {
-                            width: 6px;
-                            background: rgba(255, 255, 255, 0.15);
+                            display: block;
+                            width: 4px;
+                            background: rgba(255, 255, 255, 0.2);
                         }
                         &::-webkit-scrollbar-thumb {
-                            background: rgba(255, 255, 255, 0.3);
+                            background: rgba(255, 255, 255, 0.6);
                         }
                         
                         .imgArrowWrap {
@@ -678,7 +681,10 @@
                 overflow: auto;
                 position: relative;
                 background: #fff;
+                -ms-overflow-style: none;
+                
                 &::-webkit-scrollbar {
+                    display: block;
                     width: 4px;
                     background-color: #fff;
                 }
