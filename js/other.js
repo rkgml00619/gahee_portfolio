@@ -251,6 +251,8 @@ for(let a = 0; a < otherTabList.length; a++){
 
                     modalImgNext.onclick = function(e){
                         e.preventDefault();
+                        
+                        otherModalImgWrap.scrollTop = 0;
                     
                         otherModalImgWrap.querySelectorAll(".modalImg").forEach(function(img){
                             img.classList.remove("on");
@@ -273,6 +275,11 @@ for(let a = 0; a < otherTabList.length; a++){
                         if(e.code === "ArrowRight"){
                             modalImgPrev.classList.remove("on");
                             modalImgNext.classList.add("on");
+                            setTimeout(function(){
+                                modalImgNext.classList.remove("on");
+                            }, 1000);
+                        
+                            otherModalImgWrap.scrollTop = 0;
 
                             otherModalImgWrap.querySelectorAll(".modalImg").forEach(function(img){
                                 img.classList.remove("on");
@@ -293,6 +300,8 @@ for(let a = 0; a < otherTabList.length; a++){
                     modalImgPrev.onclick = function(e){
                         e.preventDefault();
                         
+                        otherModalImgWrap.scrollTop = 0;
+                        
                         if(modalImgCount === 0){
                             modalImgCount = otherModalImgWrap.querySelectorAll(".modalImg").length - 1;
                         }
@@ -312,6 +321,11 @@ for(let a = 0; a < otherTabList.length; a++){
                         if(e.code === "ArrowLeft"){
                             modalImgNext.classList.remove("on");
                             modalImgPrev.classList.add("on");
+                            setTimeout(function(){
+                                modalImgPrev.classList.remove("on");
+                            }, 1000);
+                        
+                            otherModalImgWrap.scrollTop = 0;
 
                             otherModalImgWrap.querySelectorAll(".modalImg").forEach(function(img){
                                 img.classList.remove("on");
