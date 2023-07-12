@@ -177,9 +177,21 @@ const otherTabList = document.querySelectorAll(".cont4.otherWork .otherWorkWrap 
 otherTabList[0].classList.add("on");
 otherTabMenu[0].classList.add("on");
 
-// 처음 화면에서 랩리스트의 부모높이를 지정함
-let tabContsHeight = otherTabConts.querySelector(".on").offsetHeight;
-otherWork.style.height = tabContsHeight + 750 + "px";
+
+let tabContsHeight;
+
+window.addEventListener("load", function(){
+    // 처음 화면에서 랩리스트의 부모높이를 지정함
+    tabContsHeight = otherTabConts.querySelector(".on").offsetHeight;
+    otherWork.style.height = tabContsHeight + 750 + "px";
+});
+window.addEventListener("resize", function(){
+    // 처음 화면에서 랩리스트의 부모높이를 지정함
+    tabContsHeight = otherTabConts.querySelector(".on").offsetHeight;
+    otherWork.style.height = tabContsHeight + 750 + "px";
+});
+
+window
 
 // 탭메뉴 클릭 시 콘텐츠 및 메뉴 클래스 제어
 for(let i = 0; i < otherTabMenu.length; i++){
@@ -237,7 +249,7 @@ for(let a = 0; a < otherTabList.length; a++){
                         otherModalImg.setAttribute("class", "modalImg");
                         otherModalImgWrap.append(otherModalImg);
 
-                        otherModalImg.src = `/img/other/${otherWorkData[a].data[i].imgAll[h]}`;
+                        otherModalImg.src = `img/other/${otherWorkData[a].data[i].imgAll[h]}`;
                     }
 
                     if(otherWorkData[a].data[i].imgAll.length > 1){
