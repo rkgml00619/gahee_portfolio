@@ -145,7 +145,7 @@ for(let i = 0; i < otherWorkData.length; i++){
         // contImg 생성 후 contWrap 삽입
         let contImg = document.createElement("img");
         contWrap.append(contImg);
-        contImg.src = `/img/other/${otherWorkData[i].data[a].thumbImg}`;
+        contImg.src = `img/other/${otherWorkData[i].data[a].thumbImg}`;
 
         // conText 생성 후 contWrap 삽입
         let conText = document.createElement("div");
