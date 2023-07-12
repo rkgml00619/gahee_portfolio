@@ -113,6 +113,7 @@ const otherTabConts = document.querySelector(".cont4.otherWork .otherWorkWrap .t
 
 // 모달창 제어
 const otherModal = document.querySelector(".cont4.otherWork .modal");
+const otherModalWrap = document.querySelector(".otherWork .otherWork.modal .center");
 const otherModalClose = document.querySelector(".cont4.otherWork .modal .closeIcon");
 const modalImgPrev = document.querySelector(".otherWork .otherWork.modal .center .arrowWrap a.prev");
 const modalImgNext = document.querySelector(".otherWork .otherWork.modal .center .arrowWrap a.next");
@@ -183,15 +184,23 @@ let tabContsHeight;
 window.addEventListener("load", function(){
     // 처음 화면에서 랩리스트의 부모높이를 지정함
     tabContsHeight = otherTabConts.querySelector(".on").offsetHeight;
-    otherWork.style.height = tabContsHeight + 750 + "px";
+    if(mobile.matches){
+        otherWork.style.height = tabContsHeight + 500 + "px";
+    }
+    else {
+        otherWork.style.height = tabContsHeight + 750 + "px";
+    }
 });
 window.addEventListener("resize", function(){
     // 처음 화면에서 랩리스트의 부모높이를 지정함
     tabContsHeight = otherTabConts.querySelector(".on").offsetHeight;
-    otherWork.style.height = tabContsHeight + 750 + "px";
+    if(mobile.matches){
+        otherWork.style.height = tabContsHeight + 500 + "px";
+    }
+    else {
+        otherWork.style.height = tabContsHeight + 750 + "px";
+    }
 });
-
-window
 
 // 탭메뉴 클릭 시 콘텐츠 및 메뉴 클래스 제어
 for(let i = 0; i < otherTabMenu.length; i++){
@@ -210,9 +219,15 @@ for(let i = 0; i < otherTabMenu.length; i++){
             otherTabList[i].style.transform = "translateY(0)";
         }, 10);
 
+
         // 선택한 리스트들의 높이값에 맞춰 부모창의 높이가 지정됨
         tabContsHeight = otherTabConts.querySelector(".on").offsetHeight;
-        otherWork.style.height = tabContsHeight + 750 + "px";   
+        if(mobile.matches){
+            otherWork.style.height = tabContsHeight + 500 + "px";
+        }
+        else {
+            otherWork.style.height = tabContsHeight + 750 + "px";
+        }
     }
 }
 
@@ -222,6 +237,8 @@ for(let a = 0; a < otherTabList.length; a++){
         otherTabList[a].querySelectorAll(".contWrap")[i].onclick = function(e){
             e.preventDefault();
 
+            document.querySelector("body").style.overflow = "hidden";
+            
             // 다른 컨텐츠를 클릭했을 때 기존 모달창 내용 초기화
             otherModalTitle.innerText = "";
             otherModalContent.innerText = "";
@@ -256,15 +273,19 @@ for(let a = 0; a < otherTabList.length; a++){
                         modalImgPrev.style.display = "flex";
                         modalImgNext.style.display = "flex";
                     }
-
+                    
                     const modalImgs = otherModalImgWrap.querySelectorAll(".cont4.otherWork .modal .left img");
                     
                     modalImgs[0].classList.add("on");
 
+
+                    // 오른쪽 버튼 눌렀을 때 이미지 넘어감
                     modalImgNext.onclick = function(e){
                         e.preventDefault();
                         
-                        otherModalImgWrap.scrollTop = 0;
+                        if(!mobile.matches){
+                            otherModalImgWrap.scrollTop = 0;
+                        }
                     
                         otherModalImgWrap.querySelectorAll(".modalImg").forEach(function(img){
                             img.classList.remove("on");
@@ -279,9 +300,8 @@ for(let a = 0; a < otherTabList.length; a++){
                         }
                     
                         otherModalImgWrap.querySelectorAll(".modalImg")[modalImgCount].classList.add("on");
+                        
                     }
-
-
                     // 키보드 방향키 오른쪽 눌렀을 때 이미지 넘어감
                     document.addEventListener("keydown", function(e){
                         if(e.code === "ArrowRight"){
@@ -291,7 +311,9 @@ for(let a = 0; a < otherTabList.length; a++){
                                 modalImgNext.classList.remove("on");
                             }, 1000);
                         
-                            otherModalImgWrap.scrollTop = 0;
+                            if(!mobile.matches){
+                                otherModalImgWrap.scrollTop = 0;
+                            }
 
                             otherModalImgWrap.querySelectorAll(".modalImg").forEach(function(img){
                                 img.classList.remove("on");
@@ -305,14 +327,17 @@ for(let a = 0; a < otherTabList.length; a++){
                                 modalImgCount++;
                             }
                         
-                            otherModalImgWrap.querySelectorAll(".modalImg")[modalImgCount].classList.add("on");
+                            otherModalImgWrap.querySelectorAll(".modalImg")[modalImgCount].classList.add("on");                            
                         }
                     });
 
+                    // 왼쪽 버튼 눌렀을 때 이미지 넘어감
                     modalImgPrev.onclick = function(e){
                         e.preventDefault();
                         
-                        otherModalImgWrap.scrollTop = 0;
+                        if(!mobile.matches){
+                            otherModalImgWrap.scrollTop = 0;
+                        }
                         
                         if(modalImgCount === 0){
                             modalImgCount = otherModalImgWrap.querySelectorAll(".modalImg").length - 1;
@@ -327,7 +352,6 @@ for(let a = 0; a < otherTabList.length; a++){
                     
                         otherModalImgWrap.querySelectorAll(".modalImg")[modalImgCount].classList.add("on");
                     }
-
                     // 키보드방향키 왼쪽 눌렀을 때 이미지 변경됨
                     document.addEventListener("keydown", function(e){
                         if(e.code === "ArrowLeft"){
@@ -337,7 +361,9 @@ for(let a = 0; a < otherTabList.length; a++){
                                 modalImgPrev.classList.remove("on");
                             }, 1000);
                         
-                            otherModalImgWrap.scrollTop = 0;
+                            if(!mobile.matches){
+                                otherModalImgWrap.scrollTop = 0;
+                            }
 
                             otherModalImgWrap.querySelectorAll(".modalImg").forEach(function(img){
                                 img.classList.remove("on");
@@ -397,6 +423,9 @@ for(let a = 0; a < otherTabList.length; a++){
         // 모달창에서 클로즈 버튼을 클릭하면 모달창 닫힘
         otherModalClose.onclick = function(e){
             e.preventDefault();
+            
+
+            document.querySelector("body").style.overflow = "auto";
 
             otherModal.style.opacity = "0";
             setTimeout(function(){
@@ -405,7 +434,6 @@ for(let a = 0; a < otherTabList.length; a++){
         }
     }
 }
-
 
 // 모달창에서 컨텐츠 바깥을 누르면 모달창 닫힘
 otherModal.onclick = function(e){

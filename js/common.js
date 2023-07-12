@@ -1,3 +1,8 @@
+// 반응형 화면 사이즈 확인
+const pc = matchMedia("screen and (min-width: 1201px)");
+const tablet = matchMedia("screen and (max-width: 1200px)");
+const mobile = matchMedia("screen and (max-width: 768px)");
+
 const section = document.querySelectorAll("#container > div");
 const header = document.querySelector("#header");
 const headerMenu = document.querySelectorAll("#header .center .gnb li");
@@ -21,17 +26,20 @@ window.addEventListener("scroll", function(){
     }
     
     // header on클래스 제어
-    if(windowPosition <= section[1].offsetTop - 200 || windowPosition >= section[4].offsetTop - 200){
+    if(windowPosition <= section[1].offsetTop - 200){
         header.classList.add("on");
         header.style.background = "transparent";
+        header.style.boxShadow = "0 10px 10px rgba(0,0,0, 0)";
     }
     else if(windowPosition >= section[2].offsetTop - 200 && windowPosition < section[3].offsetTop){
         header.classList.add("on");
         header.style.background = "#111";
+        header.style.boxShadow = "0 10px 10px rgba(0,0,0, 0.1)";
     }
     else {
         header.classList.remove("on");
         header.style.background = "#fff";
+        header.style.boxShadow = "0 10px 10px rgba(0,0,0, 0.1)";
     }
 
     for(let i = 0; i < section.length; i++){
@@ -40,6 +48,12 @@ window.addEventListener("scroll", function(){
                 headerMenu.classList.remove("on");
             });
             headerMenu[i].classList.add("on");
+
+            if(i == 4){
+                header.style.background = "#bc0400";
+                header.classList.add("on");
+                header.style.boxShadow = "0 10px 10px rgba(0,0,0, 0.1)";
+            }
         }
     }
 

@@ -55,6 +55,7 @@ body {
   z-index: 9999;
   border-bottom: 1px solid #ccc;
   transition: all 0.5s;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
 #header .center {
   width: 80%;
@@ -133,6 +134,83 @@ body {
   background: #fff;
 }
 
+@media screen and (max-width: 1200px) {
+  #header .center {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 820px) {
+  #header .center .gnb li {
+    margin-left: 30px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #header .center {
+    width: 90%;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px 0 20px;
+  }
+  #header .center .logo {
+    width: 100px;
+    margin-bottom: 30px;
+  }
+  #header .center .gnb {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #header .center .gnb li {
+    margin-left: 0;
+    text-align: center;
+  }
+  #header .center .gnb li:hover a::before {
+    top: -8px;
+    left: 2px;
+    opacity: 1;
+  }
+  #header .center .gnb li a {
+    font-size: calc(10px + 1.2vw);
+    font-weight: 300;
+    color: #000;
+    position: relative;
+  }
+  #header .center .gnb li a::before {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+    position: absolute;
+    top: -30px;
+    left: 0;
+    background: #f53024;
+    opacity: 0;
+    transition: all 0.5s;
+  }
+  #header .center .gnb li.on a::before {
+    top: -8px;
+    left: 2px;
+    opacity: 1;
+  }
+  #header.on {
+    background: transparent;
+    border-bottom: 1px solid transparent;
+  }
+  #header.on .center .logo .logo_bk {
+    opacity: 0;
+  }
+  #header.on .center .logo .logo_wh {
+    opacity: 1;
+  }
+  #header.on .center .gnb li a {
+    color: #fff;
+  }
+  #header.on .center .gnb li a::before {
+    background: #fff;
+  }
+}
 .main {
   width: 100%;
   height: 100vh;
@@ -1386,7 +1464,7 @@ body {
 }
 @media screen and (max-width: 820px) {
   .contact {
-    height: 80vh;
+    height: 100vh;
   }
   .contact .center .contactConts {
     width: 100%;
@@ -1526,14 +1604,24 @@ body {
   }
   .portfolio .center .sectionTitle {
     color: #fff;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
+  }
+  .portfolio .center .portfolioConts .tabMenu {
+    flex-direction: column;
+    margin-bottom: 30px;
+    border-bottom-color: #fff;
   }
   .portfolio .center .portfolioConts .tabMenu li {
-    margin-right: 20px;
-    font-size: 22px;
+    padding: 10px 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    font-size: 20px;
   }
   .portfolio .center .portfolioConts .tabMenu li::after {
-    margin-top: 22px;
+    display: none;
+  }
+  .portfolio .center .portfolioConts .tabMenu li:last-child {
+    margin-bottom: 10px;
   }
   .portfolio .center .portfolioConts .tabMenu li.on {
     color: #fff;
@@ -1544,10 +1632,14 @@ body {
   }
   .portfolio .center .portfolioConts .tabConts {
     width: 100%;
-    min-height: calc(100vmax + 20vh);
+    min-height: calc(100vh + 110vmax);
   }
   .portfolio .center .portfolioConts .tabConts .arrowWrap {
-    top: calc(50vh + 60px);
+    top: calc(50vh + 30px);
+  }
+  .portfolio .center .portfolioConts .tabConts .arrowWrap a {
+    width: 45px;
+    height: 45px;
   }
   .portfolio .center .portfolioConts .tabConts .tabList {
     flex-direction: column;
@@ -1561,28 +1653,204 @@ body {
     width: 100%;
   }
   .portfolio .center .portfolioConts .tabConts .tabList .right .portfolioTitle {
-    font-size: 38px;
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+  .portfolio .center .portfolioConts .tabConts .tabList .right .content {
+    display: block;
+    border-bottom-color: rgba(255, 255, 255, 0.6);
   }
   .portfolio .center .portfolioConts .tabConts .tabList .right .content .contentTitle {
+    width: 100%;
     font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
   }
   .portfolio .center .portfolioConts .tabConts .tabList .right .content .detailText {
+    width: 100%;
     font-size: 16px;
   }
   .portfolio .center .portfolioConts .tabConts .tabList .right .content .txt {
+    width: 100%;
     font-size: 16px;
+  }
+  .portfolio .center .portfolioConts .tabConts .tabList .right .content .detail ul {
+    margin-bottom: 20px;
   }
   .portfolio .center .portfolioConts .tabConts .tabList .right .content .detail ul li {
     font-size: 16px;
+    line-height: 1.4;
   }
   .portfolio .center .portfolioConts .tabConts .tabList .right .content .linkText {
     font-size: 16px;
   }
   .portfolio .center .portfolioConts .tabConts .tabList .right .responBtn {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
   .portfolio .center .portfolioConts .tabConts .tabList .right .responBtn .btn {
     padding: 12px 20px;
     font-size: 16px;
+  }
+  .otherWork .otherWorkWrap {
+    width: 100%;
+    min-height: 100vh;
+    padding: 120px 0 60px;
+  }
+  .otherWork .otherWorkWrap .center {
+    width: 90%;
+  }
+  .otherWork .otherWorkWrap .center .sectionTitle {
+    margin-bottom: 40px;
+  }
+  .otherWork .otherWorkWrap .center .otherConts .tabMenu {
+    flex-direction: column;
+    margin-bottom: 30px;
+    border-bottom-color: #000;
+  }
+  .otherWork .otherWorkWrap .center .otherConts .tabMenu li {
+    padding: 10px 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    font-size: 20px;
+  }
+  .otherWork .otherWorkWrap .center .otherConts .tabMenu li::after {
+    display: none;
+  }
+  .otherWork .otherWorkWrap .center .otherConts .tabMenu li:last-child {
+    margin-bottom: 10px;
+  }
+  .otherWork .otherWorkWrap .center .otherConts .tabMenu li.on::after {
+    width: 100%;
+  }
+  .otherWork .otherWorkWrap .center .otherConts .tabConts .tabList {
+    grid-template-columns: repeat(auto-fill, calc(50% - 10px));
+    grid-gap: 10px;
+  }
+  .otherWork .otherWorkWrap .center .otherConts .tabConts .tabList .contWrap {
+    width: 100%;
+    height: calc(50vw - 20px);
+    margin-bottom: 20px;
+  }
+  .otherWork .otherWorkWrap .center .otherConts .tabConts .tabList .contWrap .conText a h3 {
+    font-size: 18px;
+  }
+  .otherWork .otherWork.modal .center {
+    width: 90%;
+    height: 80vh;
+    overflow: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    position: relative;
+    scroll-behavior: smooth;
+    margin-top: 30px;
+  }
+  .otherWork .otherWork.modal .center::-webkit-scrollbar {
+    display: block;
+    width: 3px;
+    background-color: #ccc;
+  }
+  .otherWork .otherWork.modal .center::-webkit-scrollbar-thumb {
+    background-color: #000;
+  }
+  .otherWork .otherWork.modal .center .arrowWrap {
+    top: 0;
+    right: 0;
+  }
+  .otherWork .otherWork.modal .center .arrowWrap a {
+    width: 50px;
+    height: 50px;
+  }
+  .otherWork .otherWork.modal .center .left {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    padding-bottom: 60px;
+    border-bottom: 1px solid #000;
+  }
+  .otherWork .otherWork.modal .center .left::-webkit-scrollbar {
+    display: none;
+    width: 3px;
+  }
+  .otherWork .otherWork.modal .center .left img {
+    position: relative;
+  }
+  .otherWork .otherWork.modal .center .right {
+    width: 100%;
+    padding: 60px 20px;
+    border-left: 0;
+  }
+  .otherWork .otherWork.modal .center .right .modalTitle {
+    font-size: 28px;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+  }
+  .otherWork .otherWork.modal .center .right .linkBtn {
+    margin-bottom: 40px;
+  }
+  .otherWork .otherWork.modal .center .right .contentWrap .content {
+    margin-bottom: 20px;
+  }
+  .otherWork .otherWork.modal .center .right .contentWrap .content:last-child {
+    margin-bottom: 0;
+  }
+  .otherWork .otherWork.modal .center .right .closeBtn {
+    position: fixed;
+    top: 4vh;
+    right: 50%;
+    transform: translateX(50%);
+    border-radius: 100%;
+    box-sizing: border-box;
+    border: 1px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+  }
+  .otherWork .otherWork.modal .center .right .closeBtn span.closeIcon {
+    font-size: 25px;
+    color: #fff;
+  }
+  .otherWork .otherWork.modal.on {
+    display: flex;
+  }
+  .contact {
+    min-height: 100vh;
+    height: auto;
+    padding: 120px 0 80px;
+  }
+  .contact .center .sectionTitle {
+    margin-bottom: 60px;
+  }
+  .contact .center .contactConts {
+    width: 100%;
+    flex-direction: column;
+  }
+  .contact .center .contactConts .left {
+    width: 100%;
+  }
+  .contact .center .contactConts .left .contactTitle {
+    font-size: calc(4.8vw + 2.4vmin);
+    margin-bottom: 60px;
+  }
+  .contact .center .contactConts .right {
+    width: 100%;
+  }
+  .contact .center .contactConts .right .rightTitle {
+    font-size: 22px;
+  }
+  .contact .center .contactConts .right .infoWrap .infoList {
+    display: block;
+  }
+  .contact .center .contactConts .right .infoWrap .infoList:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  }
+  .contact .center .contactConts .right .infoWrap .infoList .infoTitle {
+    width: 100%;
+    margin-bottom: 10px;
+    font-weight: 500;
   }
 }
