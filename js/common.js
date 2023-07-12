@@ -52,7 +52,12 @@ window.addEventListener("scroll", function(){
             if(i == 4){
                 header.style.background = "#bc0400";
                 header.classList.add("on");
-                header.style.boxShadow = "0 10px 10px rgba(0,0,0, 0.1)";
+                if(tablet.matches){
+                    header.style.boxShadow = "0 10px 10px rgba(0,0,0, 0.1)";
+                }
+                else {
+                    header.style.boxShadow = "0 10px 10px rgba(0,0,0, 0)";
+                }
             }
         }
     }
