@@ -84,7 +84,13 @@ window.addEventListener("scroll", function(){
 window.addEventListener("wheel", function(e){
     let windowPosition = window.scrollY;
     
-    if(windowPosition == section[0].offsetTop && e.deltaY < 0){
+    if(windowPosition <= section[0].offsetTop + 200 && e.deltaY < 0){
+        bgCircle.classList.remove("on");
+        setTimeout(function(){
+            bgCircle.classList.add("on");
+        }, 100);
+    }
+    else if(windowPosition == section[0].offsetTop && mobile.matches){
         bgCircle.classList.remove("on");
         setTimeout(function(){
             bgCircle.classList.add("on");
@@ -110,10 +116,10 @@ window.addEventListener("load", function(){
 
 
 
-const blogBtn = document.querySelector(".contact .center .contactConts .right .infoWrap .infoList > a.blog");
+// const blogBtn = document.querySelector(".contact .center .contactConts .right .infoWrap .infoList > a.blog");
 
-blogBtn.onclick = function(e){
-    e.preventDefault();
+// blogBtn.onclick = function(e){
+//     e.preventDefault();
 
-    alert("기술블로그는 준비 중입니다.");
-}
+//     alert("기술블로그는 준비 중입니다.");
+// }
