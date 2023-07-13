@@ -1508,8 +1508,8 @@ body {
     100% {
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 200vw;
-      height: 200vw;
+      width: 300vw;
+      height: 300vw;
     }
   }
   @keyframes circleAnimationRight {
@@ -1528,8 +1528,8 @@ body {
     100% {
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 200vw;
-      height: 200vw;
+      width: 300vw;
+      height: 300vw;
     }
   }
   .main .center {

@@ -1262,12 +1262,12 @@
         @keyframes circleAnimationLeft {
             0% {left: -100px; transform: translate(-50%, -50%); width: 30px; height: 30px;}
             60% {left: 50%; transform: translate(-50%, -50%); width: 30px; height: 30px;}
-            100% {left: 50%; transform: translate(-50%, -50%); width: 200vw; height: 200vw;}
+            100% {left: 50%; transform: translate(-50%, -50%); width: 300vw; height: 300vw;}
         }
         @keyframes circleAnimationRight {
             0% {left: calc(100% + 100px); transform: translate(0, -50%); width: 30px; height: 30px;}
             60% {left: 50%; transform: translate(-50%, -50%); width: 30px; height: 50px;}
-            100% {left: 50%; transform: translate(-50%, -50%); width: 200vw; height: 200vw;}
+            100% {left: 50%; transform: translate(-50%, -50%); width: 300vw; height: 300vw;}
         }
         .center {
             width: 90%;
