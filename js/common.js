@@ -107,3 +107,13 @@ window.addEventListener("load", function(){
         bgCircle.classList.add("on");
     }, 100);
 });
+
+
+
+const blogBtn = document.querySelector(".contact .center .contactConts .right .infoWrap .infoList > a.blog");
+
+blogBtn.onclick = function(e){
+    e.preventDefault();
+
+    alert("기술블로그는 준비 중입니다.");
+}

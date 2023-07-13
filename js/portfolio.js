@@ -30,35 +30,54 @@ for(let i = 0; i < portfolioMenu.length; i++){
     }
 }
 
-// 포트폴리오 섹션에 스크롤이 도달했을 때 자동 탭이 시작됨
-window.addEventListener("scroll", function(){
-    let windowPosition = window.scrollY;
 
-    if(windowPosition >= portfolio.offsetTop && windowPosition < portfolioNextSection.offsetTop){
-        if(check === true){
-            check = false;
+if(!mobile.matches){
+    // 포트폴리오 섹션에 스크롤이 도달했을 때 자동 탭이 시작됨
+    window.addEventListener("scroll", function(){
+        let windowPosition = window.scrollY;
 
-            // 탭 자동 실행
-            autoTab = setInterval(function(){
+        if(windowPosition >= portfolio.offsetTop && windowPosition < portfolioNextSection.offsetTop){
+            if(check === true){
+                check = false;
+
+                // 탭 자동 실행
+                autoTab = setInterval(function(){
+                    if(tabCount >= portfolioMenu.length - 1){
+                        tabCount = 0;
+                    }
+                    else {
+                        tabCount++;
+                    }
+
+                    tabChange(tabCount);
+                }, 4000);
+            }
+        }
+        else {
+            if(check === false){
+                clearInterval(autoTab);
+            }
+        }
+    });
+
+    window.addEventListener("load", function(){
+        // 탭 전체에 마우스 호버 시 자동실행 멈춤, 재실행
+        portfolioTab.onmouseenter = function(){
+            clearInterval(autoTab);
+        }
+        portfolioTab.onmouseleave = function(){
+            autoTab = setInterval(function(){    
                 if(tabCount >= portfolioMenu.length - 1){
                     tabCount = 0;
                 }
                 else {
                     tabCount++;
                 }
-
                 tabChange(tabCount);
             }, 4000);
         }
-    }
-    else {
-        if(check === false){
-            clearInterval(autoTab);
-        }
-    }
-});
-
-window.addEventListener("load", function(){
+    });
+    
     // 탭 전체에 마우스 호버 시 자동실행 멈춤, 재실행
     portfolioTab.onmouseenter = function(){
         clearInterval(autoTab);
@@ -72,23 +91,8 @@ window.addEventListener("load", function(){
                 tabCount++;
             }
             tabChange(tabCount);
-        }, 4000);
+        }, 1000);
     }
-});
-// 탭 전체에 마우스 호버 시 자동실행 멈춤, 재실행
-portfolioTab.onmouseenter = function(){
-    clearInterval(autoTab);
-}
-portfolioTab.onmouseleave = function(){
-    autoTab = setInterval(function(){    
-        if(tabCount >= portfolioMenu.length - 1){
-            tabCount = 0;
-        }
-        else {
-            tabCount++;
-        }
-        tabChange(tabCount);
-    }, 1000);
 }
 
 // 포트폴리오 컨텐츠 좌우 넘김
