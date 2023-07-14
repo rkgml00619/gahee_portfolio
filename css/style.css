@@ -701,7 +701,7 @@ body {
   background: #fff;
   padding: 200px 0;
   box-sizing: border-box;
-  transform: scale(0.6);
+  transform: scale(0.6) translate3d(0, -150px, 0);
   transition: all 1s;
   display: flex;
   justify-content: center;
@@ -850,7 +850,7 @@ body {
   }
 }
 .otherWork .otherWorkWrap .center .otherConts .tabConts .tabList.on {
-  transform: translateY(0);
+  transform: scale(1) translate3d(0, 0, 0);
   display: grid;
   opacity: 1;
 }
@@ -1617,6 +1617,10 @@ body {
     margin-bottom: 0;
     font-size: 20px;
   }
+  .portfolio .center .portfolioConts .tabMenu li::before {
+    content: "#";
+    margin-right: 5px;
+  }
   .portfolio .center .portfolioConts .tabMenu li::after {
     display: none;
   }
@@ -1648,6 +1652,8 @@ body {
     width: 100%;
     height: 50vh;
     margin-bottom: 40px;
+    overflow: hidden;
+    overflow-y: auto;
   }
   .portfolio .center .portfolioConts .tabConts .tabList .right {
     width: 100%;

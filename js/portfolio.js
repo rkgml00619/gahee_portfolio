@@ -27,6 +27,13 @@ for(let i = 0; i < portfolioMenu.length; i++){
     portfolioMenu[i].onclick = function(){
         tabCount = i;
         tabChange(i);
+
+        // tabconts 높이값 on이 붙은 사이즈 만큼 지정
+        portfolioConts.forEach(function(portfolioConts){
+            if(portfolioConts.classList.contains("on")){
+                portfolioConts.parentElement.style.height = portfolioConts.offsetHeight + "px";
+            }
+        })
     }
 }
 

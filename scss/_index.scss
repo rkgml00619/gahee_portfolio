@@ -460,7 +460,7 @@
         background: #fff;
         padding: 200px 0;
         box-sizing: border-box;
-        transform: scale(0.6);
+        transform: scale(0.6) translate3d(0, -150px, 0);
         transition: all 1s;
         display: flex;
         justify-content: center;
@@ -604,7 +604,7 @@
                         }
                     }
                     .tabList.on {
-                        transform: translateY(0);
+                        transform: scale(1) translate3d(0, 0, 0);
                         display: grid;
                         opacity: 1;
                     }
@@ -1358,6 +1358,10 @@
                         margin-right: 0;
                         margin-bottom: 0;
                         font-size: 20px;
+                        &::before {
+                            content: "#";
+                            margin-right: 5px;
+                        }
                         &::after {
                             display: none;
                         }
@@ -1388,6 +1392,8 @@
                         .left { 
                             width: 100%; height: 50vh;
                             margin-bottom: 40px;
+                            overflow: hidden;
+                            overflow-y: auto;
                         }
                         .right { 
                             width: 100%;

@@ -64,18 +64,18 @@ window.addEventListener("scroll", function(){
 
     // profile 섹션 크기 제어 - 화면에 도달할 때
     if(windowPosition >= section[1].offsetTop / 2){
-        profileWrap.style.transform = "scale(1)";
+        profileWrap.style.transform = "scale(1) translate3d(0, 0, 0)";
     }
     else {
-        profileWrap.style.transform = "scale(0.9)";
+        profileWrap.style.transform = "scale(0.9) translate3d(0, -100px, 0)";
     }
 
     // otherWork 섹션 크기 제어 - 화면에 도달할 때
     if(windowPosition >= section[3].offsetTop - 200){
-        otherWorkWrap.style.transform = "scale(1)";
+        otherWorkWrap.style.transform = "scale(1) translate3d(0, 0, 0)";
     }
     else {
-        otherWorkWrap.style.transform = "scale(0.9)";
+        otherWorkWrap.style.transform = "scale(0.9) translate3d(0, -150px, 0)";
     }
 });
 
