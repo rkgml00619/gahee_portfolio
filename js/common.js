@@ -75,7 +75,7 @@ window.addEventListener("scroll", function(){
         otherWorkWrap.style.transform = "scale(1) translate3d(0, 0, 0)";
     }
     else {
-        otherWorkWrap.style.transform = "scale(0.9) translate3d(0, -200px, 0)";
+        otherWorkWrap.style.transform = "scale(0.9) translate3d(0, -150px, 0)";
     }
 });
 

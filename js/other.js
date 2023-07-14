@@ -115,6 +115,7 @@ const otherTabConts = document.querySelector(".cont4.otherWork .otherWorkWrap .t
 const otherModal = document.querySelector(".cont4.otherWork .modal");
 const otherModalWrap = document.querySelector(".otherWork .otherWork.modal .center");
 const otherModalClose = document.querySelector(".cont4.otherWork .modal .closeIcon");
+const modalImgArrowWrap = document.querySelector(".otherWork .otherWork.modal .center .arrowWrap");
 const modalImgPrev = document.querySelector(".otherWork .otherWork.modal .center .arrowWrap a.prev");
 const modalImgNext = document.querySelector(".otherWork .otherWork.modal .center .arrowWrap a.next");
 let modalImgCount = 0;
@@ -231,6 +232,7 @@ for(let i = 0; i < otherTabMenu.length; i++){
     }
 }
 
+
 // 탭 컨텐츠를 클릭하면 모달창 제어 및 모달창 콘텐츠 변경
 for(let a = 0; a < otherTabList.length; a++){
     for(let i = 0; i < otherTabList[a].querySelectorAll(".contWrap").length; i++){
@@ -244,12 +246,16 @@ for(let a = 0; a < otherTabList.length; a++){
             otherModalContent.innerText = "";
             modalImgPrev.style.display = "none";
             modalImgNext.style.display = "none";
+            modalImgCount = 0;
 
             // 컨텐츠 클릭 시 모달창 열림
             otherModal.classList.add("on");
             setTimeout(function(){
                 otherModal.style.opacity = "1";
             }, 100);
+
+            // 모달창 열렸을 때 스크롤이 항상 최상단에 위치하게끔 변경
+            otherModalWrap.scrollTop = 0;
 
             // 컨텐츠의 타이틀의 문구를 findText 변수에 담음
             findText =  otherTabList[a].querySelectorAll(".contWrap")[i].querySelector("h3").innerHTML;
@@ -298,7 +304,6 @@ for(let a = 0; a < otherTabList.length; a++){
                         else {
                             modalImgCount++;
                         }
-                    
                         otherModalImgWrap.querySelectorAll(".modalImg")[modalImgCount].classList.add("on");
                         
                     }
@@ -415,6 +420,16 @@ for(let a = 0; a < otherTabList.length; a++){
 
                         contentTitle.innerText = otherWorkData[a].data[i].classific[h];
                         contentText.innerText = otherWorkData[a].data[i].context[h];
+                    }
+                    
+                    if(tablet.matches){
+                        modalImgArrowWrap.style.position = "sticky";
+                        modalImgArrowWrap.style.top = "calc(100% - 50px)";
+                    }
+                    else {
+                        modalImgArrowWrap.style.top = "0";
+                        modalImgArrowWrap.style.right = "calc(30% + 4px)";
+                        modalImgArrowWrap.style.position = "absolute";
                     }
                 }
             }

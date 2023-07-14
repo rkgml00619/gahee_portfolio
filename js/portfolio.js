@@ -21,6 +21,13 @@ let imgCount = 0;
 imgChange(0);
 portfolioConts[0].classList.add("on");
 
+// tabconts 높이값 on이 붙은 사이즈 만큼 지정
+portfolioConts.forEach(function(portfolioConts){
+    if(portfolioConts.classList.contains("on")){
+        portfolioConts.parentElement.style.height = portfolioConts.offsetHeight + "px";
+    }
+})
+
 
 // 탭메뉴 클릭 시 변경
 for(let i = 0; i < portfolioMenu.length; i++){
@@ -38,69 +45,69 @@ for(let i = 0; i < portfolioMenu.length; i++){
 }
 
 
-if(!mobile.matches){
+// if(!mobile.matches){
     // 포트폴리오 섹션에 스크롤이 도달했을 때 자동 탭이 시작됨
-    window.addEventListener("scroll", function(){
-        let windowPosition = window.scrollY;
+    // window.addEventListener("scroll", function(){
+    //     let windowPosition = window.scrollY;
 
-        if(windowPosition >= portfolio.offsetTop && windowPosition < portfolioNextSection.offsetTop){
-            if(check === true){
-                check = false;
+    //     if(windowPosition >= portfolio.offsetTop && windowPosition < portfolioNextSection.offsetTop){
+    //         if(check === true){
+    //             check = false;
 
-                // 탭 자동 실행
-                autoTab = setInterval(function(){
-                    if(tabCount >= portfolioMenu.length - 1){
-                        tabCount = 0;
-                    }
-                    else {
-                        tabCount++;
-                    }
+    //             // 탭 자동 실행
+    //             autoTab = setInterval(function(){
+    //                 if(tabCount >= portfolioMenu.length - 1){
+    //                     tabCount = 0;
+    //                 }
+    //                 else {
+    //                     tabCount++;
+    //                 }
 
-                    tabChange(tabCount);
-                }, 4000);
-            }
-        }
-        else {
-            if(check === false){
-                clearInterval(autoTab);
-            }
-        }
-    });
+    //                 tabChange(tabCount);
+    //             }, 4000);
+    //         }
+    //     }
+    //     else {
+    //         if(check === false){
+    //             clearInterval(autoTab);
+    //         }
+    //     }
+    // });
 
-    window.addEventListener("load", function(){
-        // 탭 전체에 마우스 호버 시 자동실행 멈춤, 재실행
-        portfolioTab.onmouseenter = function(){
-            clearInterval(autoTab);
-        }
-        portfolioTab.onmouseleave = function(){
-            autoTab = setInterval(function(){    
-                if(tabCount >= portfolioMenu.length - 1){
-                    tabCount = 0;
-                }
-                else {
-                    tabCount++;
-                }
-                tabChange(tabCount);
-            }, 4000);
-        }
-    });
+    // window.addEventListener("load", function(){
+    //     // 탭 전체에 마우스 호버 시 자동실행 멈춤, 재실행
+    //     portfolioTab.onmouseenter = function(){
+    //         clearInterval(autoTab);
+    //     }
+    //     portfolioTab.onmouseleave = function(){
+    //         autoTab = setInterval(function(){    
+    //             if(tabCount >= portfolioMenu.length - 1){
+    //                 tabCount = 0;
+    //             }
+    //             else {
+    //                 tabCount++;
+    //             }
+    //             tabChange(tabCount);
+    //         }, 4000);
+    //     }
+    // });
     
-    // 탭 전체에 마우스 호버 시 자동실행 멈춤, 재실행
-    portfolioTab.onmouseenter = function(){
-        clearInterval(autoTab);
-    }
-    portfolioTab.onmouseleave = function(){
-        autoTab = setInterval(function(){    
-            if(tabCount >= portfolioMenu.length - 1){
-                tabCount = 0;
-            }
-            else {
-                tabCount++;
-            }
-            tabChange(tabCount);
-        }, 1000);
-    }
-}
+    // // 탭 전체에 마우스 호버 시 자동실행 멈춤, 재실행
+    // portfolioTab.onmouseenter = function(){
+    //     clearInterval(autoTab);
+    // }
+    // portfolioTab.onmouseleave = function(){
+    //     autoTab = setInterval(function(){    
+    //         if(tabCount >= portfolioMenu.length - 1){
+    //             tabCount = 0;
+    //         }
+    //         else {
+    //             tabCount++;
+    //         }
+    //         tabChange(tabCount);
+    //     }, 1000);
+    // }
+// }
 
 // 포트폴리오 컨텐츠 좌우 넘김
 portFolioNext.onclick = function(e){
@@ -135,6 +142,7 @@ for(let i = 0; i < leftImgWrap.length; i++){
     leftImgWrap[i].addEventListener("scroll", function(){
         if(leftImgWrap[i].scrollTop > 50){
             imgArrowWrap[i].style.position = "sticky";
+            imgArrowWrap[i].style.justifyContent = "flex-start";
         }
         else {
             imgArrowWrap[i].style.position = "absolute";

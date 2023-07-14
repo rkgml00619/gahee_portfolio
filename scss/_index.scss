@@ -103,7 +103,7 @@
         background: #fff;
         padding: 200px 0;
         box-sizing: border-box;
-        transform: scale(0.6);
+        transform: scale(0.9);
         transition: all 1s;
         display: flex;
         justify-content: center;
@@ -278,7 +278,7 @@
                         
                         .imgArrowWrap {
                             position: absolute;
-                            top: 0; right: 0;
+                            top: 0; left: 0;
                             display: flex;
                             justify-content: flex-end;
                             z-index: 20;
@@ -288,15 +288,15 @@
                                 align-items: center;
                                 justify-content: center;
                                 background: transparent;
-                                background: rgba(0,0,0, 0.5);
-                                border: 1px solid rgba(255,255,255,0.3);
+                                background: $ptColor;
+                                // border: 1px solid rgba(255,255,255,0.3);
                                 box-sizing: border-box;
                                 transition: all 0.5s;
                                 &:last-child {
                                     border-left: 0;
                                 }
                                 &:hover {
-                                    background: $ptColor;
+                                    background: #8b0300;
                                     border-color: $ptColor;
                                     &:first-child {
                                         border-right-color: $ptColor;
@@ -307,7 +307,7 @@
                                 }
                                 .arrowIcon {
                                     width: 20%;
-                                    opacity: 0.5;
+                                    opacity: 0.8;
                                     transition: all 0.5s;
                                 }
                             }
@@ -343,6 +343,8 @@
                         }
                         .responBtn {
                             margin-bottom: 60px;
+                            display: flex;
+                            flex-wrap: wrap;
                             .btn {
                                 display: inline-block;
                                 color: #fff;
@@ -356,6 +358,15 @@
                                     background: $ptColor;
                                     border: 1px solid $ptColor;
                                 }
+                            }
+                            span {
+                                width: 100%;
+                                display: inline-block;
+                                margin-top: 20px;
+                                font-weight: 300;
+                                word-break: keep-all;
+                                line-height: 1.4;
+                                color: #999;
                             }
                         }
                         .content {
@@ -389,15 +400,18 @@
                                 transition: all 0.5s;
                                 &:hover {
                                     span.linkIcon {
-                                        color: $ptColor;
-                                        transform: rotate(-40deg);
+                                        animation: gitIconHover 0.8s ease-in;
                                     }
                                 }
                                 span.linkIcon {
-                                    transform: rotate(0);
-                                    margin-right: 5px;
+                                    display: inline-block;
+                                    width: 20px;
+                                    margin-right: 10px;
+                                    transform: translateY(0);
                                     transition: all 0.5s;
-                                    color: #fff;
+                                    img {
+                                        width: 100%;
+                                    }
                                 }
                             }
                             .detailText {
@@ -459,7 +473,7 @@
         background: #fff;
         padding: 200px 0;
         box-sizing: border-box;
-        transform: scale(0.6) translate3d(0, -150px, 0);
+        transform: scale(0.9) translate3d(0, -150px, 0);
         transition: all 1s;
         display: flex;
         justify-content: center;
@@ -525,7 +539,7 @@
                         transform: translateY(-50px);
                         transition: all 1s;
                         .contWrap {
-                            width: 100%; height: 360px;
+                            width: 100%; height: calc((100vw - 20vw - 40px)/4);
                             overflow: hidden;
                             box-shadow: 0 5px 15px rgba(0,0,0, 0.15);
                             position: relative;
@@ -534,7 +548,7 @@
                                     filter: grayscale(0);
                                 }
                                 .conText {
-                                    background: rgba(0,0,0, 0.6);
+                                    background: rgba(0,0,0, 0.4);
                                      a {
                                         opacity: 1;
                                         span.plusIcon {
@@ -622,7 +636,7 @@
     .otherWork.modal {
         width: 100%; height: 100vh;
         position: fixed;
-        background: rgba(0,0,0, 0.6);
+        background: rgba(0,0,0, 0.9);
         z-index: 99999;
         top: 0; left: 0;
         display: none;
@@ -645,15 +659,15 @@
                 justify-content: space-between;
                 box-sizing: border-box;
                 a {
-                    background: rgba(0,0,0, 0.4);
+                    background: $ptColor;
                     display: none;
                     align-items: center;
                     justify-content: center;
-                    width: 60px; height: 60px;
+                    width: 50px; height: 50px;
                     box-sizing: border-box;
                     transition: all 0.5s;
                     &:hover {
-                        background: $ptColor;
+                        background: #8b0300;
                         .arrowIcon {
                             opacity: 1;
                         }
@@ -675,6 +689,17 @@
                         opacity: 1;
                     }
                 }
+                a.prev {
+                    position: relative;
+                    &::before {
+                        content: "";
+                        width: 1px; height: 100%;
+                        background: #ccc;
+                        position: absolute;
+                        top: 0; right: 0;
+                        opacity: 0.6;
+                    }
+                }
                 a.prev.on {
                     background: $ptColor;
                     .arrowIcon {
@@ -692,7 +717,7 @@
                 &::-webkit-scrollbar {
                     display: block;
                     width: 4px;
-                    background-color: #fff;
+                    background-color: #ccc;
                 }
                 &::-webkit-scrollbar-thumb {
                     background-color: #000;
@@ -727,6 +752,7 @@
                     padding-bottom: 20px;
                     margin-bottom: 40px;
                     border-bottom: 2px solid #000;
+                    box-sizing: border-box;
                     color: #000;
                 }
                 .linkBtn {
@@ -736,6 +762,7 @@
                         color: #000;
                         padding: 14px 30px;
                         border: 1px solid #000;
+                        box-sizing: border-box;
                         color: #000;
                         font-size: 14px;
                         font-weight: 300;
@@ -867,16 +894,26 @@
                             align-items: center;
                             &:hover {
                                 span.linkIcon {
-                                    transform: rotate(-40deg);
+                                    animation: gitIconHover 0.8s ease-in;
                                 }
                             }
                             span.linkIcon {
-                                color: #fff;
-                                font-size: 26px;
+                                display: inline-block;
+                                width: 20px;
                                 margin-right: 10px;
                                 // font-variation-settings: "wght" 200;
-                                transform: rotate(0);
+                                transform: translateY(0);
                                 transition: all 0.5s;
+                                img {
+                                    width: 100%;
+                                }
+                            }
+                            @keyframes gitIconHover {
+                                0% {transform: translateY(0);}
+                                40% {transform: translateY(-8px);}
+                                60% {transform: translateY(0px);}
+                                80% {transform: translateY(-5px);}
+                                100% {transform: translateY(0);}
                             }
                         }
                         > a.down {
@@ -1101,7 +1138,6 @@
                 .arrowWrap {
                     top: 0; right: 40%;
                     a {
-                        background: rgba(0,0,0, 0.6);
                         width: 50px; height: 50px;
                     }
                 }
@@ -1223,7 +1259,150 @@
     }
 }
 
-@media screen and (max-width: 820px){
+@media screen and (max-width: 820px){    
+    .otherWork {
+        .otherWorkWrap {
+            width: 100%; min-height: 100vh;
+            padding: 120px 0 60px;
+            .center {
+                width: 90%;
+                .sectionTitle {
+                    margin-bottom: 40px;
+                }
+                .otherConts {
+                    .tabMenu {
+                        flex-direction: column;
+                        margin-bottom: 30px;
+                        border-bottom-color: #000;
+                        li {
+                            padding: 10px 0;
+                            margin-right: 0;
+                            margin-bottom: 0;
+                            font-size: 20px;
+                            &::after {
+                                display: none;
+                            }
+                            &:last-child {
+                                margin-bottom: 10px;
+                            }
+                        }
+                        li.on {
+                            &::after {
+                                width: 100%;
+                            }
+                        }
+                    }
+                    .tabConts {
+                        .tabList {
+                            grid-template-columns: repeat(auto-fill, calc(50% - 10px));
+                            grid-gap: 10px;
+                            .contWrap {
+                                width: 100%; height: calc((100vw/2) - 20px);
+                                margin-bottom: 20px;
+                                .conText {
+                                    a {
+                                        h3 {
+                                            font-size: 18px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .otherWork.modal {
+            .center {
+                width: 90%; height: 80vh;
+                overflow: hidden;
+                overflow-y: auto;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                position: relative;
+                scroll-behavior: smooth;
+                margin-top: 30px;
+                &::-webkit-scrollbar {
+                    display: block;
+                    width: 3px;
+                    background-color: #ccc;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background-color: #000;
+                }
+                
+                .arrowWrap {
+                    top: 0; right: 0;
+                    // width: 100%;
+                    // justify-content: space-between;
+                    a {
+                        width: 50px; height: 50px;
+                    }
+                    a.prev {
+                        &::before {
+                            display: none;
+                        }
+                    }
+                }
+                .left { 
+                    width: 100%; height: auto;
+                    overflow: hidden;
+                    order: 2;
+                    &::-webkit-scrollbar {
+                        display: none;
+                        width: 3px;
+                    }
+                    img {
+                        position: relative;
+                    }
+                }
+                .right { 
+                    width: 100%; 
+                    padding: 60px 60px;
+                    border-left: 0;
+                    order: 1;
+                    border-bottom: 1px solid #000;
+                    .modalTitle {
+                        font-size: 28px;
+                        padding-bottom: 10px;
+                        margin-bottom: 40px;
+                    }
+                    .linkBtn {
+                        margin-bottom: 40px;
+                    }
+                    .contentWrap {
+                        .content {
+                            margin-bottom: 20px;
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                    .closeBtn {
+                        position: fixed;
+                        top: 4vh; right: 50%;
+                        transform: translateX(50%);
+                        border-radius: 100%;
+                        box-sizing: border-box;
+                        border: 1px solid #fff;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 45px; height: 45px;
+                        span.closeIcon {
+                            font-size: 25px;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+        .otherWork.modal.on {
+            display: flex;
+        }
+    }
     .contact {
         height: 100vh;
         .center {
@@ -1439,7 +1618,51 @@
             }
         }
     }
-    
+
+    .contact {
+        min-height: 100vh;
+        height: auto;
+        padding: 120px 0 80px;
+        .center {
+            .sectionTitle {
+                margin-bottom: 60px;
+            }
+            .contactConts {
+                width: 100%;
+                flex-direction: column;
+                .left {
+                    width: 100%;
+                    .contactTitle {
+                        font-size: calc(2.4vw + 2.4vw + 2.4vmin);
+                        margin-bottom: 60px;
+                    }
+                }
+                .right {
+                    width: 100%;
+                    .rightTitle {
+                        font-size: 22px;
+                    }
+                    .infoWrap {
+                        .infoList {
+                            display: block;
+                            &:last-child {
+                                border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+                            }
+                            .infoTitle {
+                                width: 100%;
+                                margin-bottom: 10px;
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 480px) {
     .otherWork {
         .otherWorkWrap {
             width: 100%; min-height: 100vh;
@@ -1474,10 +1697,10 @@
                     }
                     .tabConts {
                         .tabList {
-                            grid-template-columns: repeat(auto-fill, calc(50% - 10px));
-                            grid-gap: 10px;
+                            grid-template-columns: repeat(auto-fill, calc(100%));
+                            grid-gap: 20px;
                             .contWrap {
-                                width: 100%; height: calc((100vw/2) - 20px);
+                                width: 100%; height: calc(100vw);
                                 margin-bottom: 20px;
                                 .conText {
                                     a {
@@ -1522,7 +1745,6 @@
                 .left { 
                     width: 100%; height: auto;
                     overflow: hidden;
-                    padding-bottom: 60px;
                     border-bottom: 1px solid #000;
                     &::-webkit-scrollbar {
                         display: none;
@@ -1575,46 +1797,4 @@
             display: flex;
         }
     }
-
-    .contact {
-        min-height: 100vh;
-        height: auto;
-        padding: 120px 0 80px;
-        .center {
-            .sectionTitle {
-                margin-bottom: 60px;
-            }
-            .contactConts {
-                width: 100%;
-                flex-direction: column;
-                .left {
-                    width: 100%;
-                    .contactTitle {
-                        font-size: calc(2.4vw + 2.4vw + 2.4vmin);
-                        margin-bottom: 60px;
-                    }
-                }
-                .right {
-                    width: 100%;
-                    .rightTitle {
-                        font-size: 22px;
-                    }
-                    .infoWrap {
-                        .infoList {
-                            display: block;
-                            &:last-child {
-                                border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-                            }
-                            .infoTitle {
-                                width: 100%;
-                                margin-bottom: 10px;
-                                font-weight: 500;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
 }
