@@ -514,7 +514,6 @@ body {
   overflow: hidden;
   overflow-y: scroll;
   position: relative;
-  background: #444;
   -ms-overflow-style: none;
 }
 .portfolio .center .portfolioConts .tabConts .tabList .left::-webkit-scrollbar {
@@ -1620,6 +1619,7 @@ body {
   .portfolio .center .portfolioConts .tabMenu li::before {
     content: "#";
     margin-right: 5px;
+    transition: all 0.4s;
   }
   .portfolio .center .portfolioConts .tabMenu li::after {
     display: none;
@@ -1629,10 +1629,6 @@ body {
   }
   .portfolio .center .portfolioConts .tabMenu li.on {
     color: #fff;
-  }
-  .portfolio .center .portfolioConts .tabMenu li.on::after {
-    width: 100%;
-    background: #fff;
   }
   .portfolio .center .portfolioConts .tabConts {
     width: 100%;

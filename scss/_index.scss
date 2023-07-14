@@ -265,7 +265,6 @@
                         overflow: hidden;
                         overflow-y: scroll;
                         position: relative;
-                        background: #444;
                         -ms-overflow-style: none;
                         
                         &::-webkit-scrollbar {
@@ -1361,6 +1360,7 @@
                         &::before {
                             content: "#";
                             margin-right: 5px;
+                            transition: all 0.4s;
                         }
                         &::after {
                             display: none;
@@ -1371,10 +1371,6 @@
                     }
                     li.on {
                         color: #fff;
-                        &::after {
-                            width: 100%;
-                            background: #fff;
-                        }
                     }
                 }
                 .tabConts {
