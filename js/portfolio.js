@@ -110,6 +110,7 @@ for(let i = 0; i < portfolioMenu.length; i++){
 // }
 
 // 포트폴리오 컨텐츠 좌우 넘김
+
 portFolioNext.onclick = function(e){
     e.preventDefault();
     
@@ -150,6 +151,35 @@ for(let i = 0; i < leftImgWrap.length; i++){
     });
 }
 
+portfolioConts.forEach(function(portfolioConts, idx){
+    for(let i = 0; i < portfolioConts.querySelectorAll(".right .responBtn .btn").length; i++){
+        portfolioConts.querySelectorAll(".right .responBtn .btn")[i].onclick = function(e){
+            e.preventDefault();
+
+            let url = ["https://bubbly-pillar-393101.du.r.appspot.com/", "https://mlb-pet.du.r.appspot.com/", "https://poke-all-day.du.r.appspot.com/"];
+
+            if(portfolioConts.querySelectorAll(".right .responBtn .btn")[i].classList.contains("pc")){
+                window.open(url[idx], "", "width=1920,height=1080", "top=0,left=0");
+            }
+            else if(portfolioConts.querySelectorAll(".right .responBtn .btn")[i].classList.contains("tablet")){
+                window.open(url[idx], "", "width=1180,height=820", "top=0,left=200");
+            }
+            else if(portfolioConts.querySelectorAll(".right .responBtn .btn")[i].classList.contains("mobile")){
+                window.open(url[idx], "", "width=390,height=844,top=0,left=500");
+            }
+        }
+    }
+    // portfolioConts.querySelectorAll(".right .responBtn .btn").onclick = function(e){
+    //     e.preventDefault();
+
+    //     let url = ["https://bubbly-pillar-393101.du.r.appspot.com/", "https://mlb-pet.du.r.appspot.com/", "https://poke-all-day.du.r.appspot.com/"];
+
+    //     if(portfolioConts.querySelector(".right .responBtn .btn").){
+    //         window.open(url[idx], "", "width=1920,height=1080");
+    //     }
+    // }
+})
+
 
 // 탭 변경 리팩토링
 function tabChange(index){
@@ -162,6 +192,7 @@ function tabChange(index){
     });
     portfolioMenu[index].classList.add("on");
     portfolioConts[index].classList.add("on");
+    
     setTimeout(() => {
         portfolioConts[index].style.opacity = "1";
         portfolioConts[index].style.transform = "translateY(0)";
