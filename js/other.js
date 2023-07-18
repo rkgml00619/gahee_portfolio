@@ -146,7 +146,7 @@ for(let i = 0; i < otherWorkData.length; i++){
         // contImg 생성 후 contWrap 삽입
         let contImg = document.createElement("img");
         contWrap.append(contImg);
-        contImg.src = `img/other/${otherWorkData[i].data[a].thumbImg}`;
+        contImg.src = `img/other/${otherWorkData[i].data[a].thumbImg}`; 
 
         // conText 생성 후 contWrap 삽입
         let conText = document.createElement("div");
@@ -170,7 +170,10 @@ for(let i = 0; i < otherWorkData.length; i++){
         linkBtn.append(plusIcon);
         plusIcon.innerText = "add";
     }
-}
+}       
+
+
+
 
 // 생성된 리스트 태그 선택
 const otherTabList = document.querySelectorAll(".cont4.otherWork .otherWorkWrap .tabConts .tabList");
@@ -178,6 +181,30 @@ const otherTabList = document.querySelectorAll(".cont4.otherWork .otherWorkWrap 
 // 처음 화면에서 0번째 순번이 미리 선택
 otherTabList[0].classList.add("on");
 otherTabMenu[0].classList.add("on");
+
+// 썸네일 이미지의 높이값이 작은 경우 이미지의 css 변경
+if(otherTabList[0].classList.contains("on")){
+    otherTabList[0].querySelectorAll("img").forEach(function(onListImg){
+        if(onListImg.offsetHeight < onListImg.parentElement.offsetHeight){
+            onListImg.style.transition = "all 0s";
+            onListImg.style.width = "auto";
+            onListImg.style.height = "100%";
+            onListImg.style.position = "absolute";
+            onListImg.style.top = "50%";
+            onListImg.style.left = "50%";
+            onListImg.style.transform = "translate(-50%, -50%)";
+        }
+        else {
+            onListImg.style.transition = "all 0.5s";
+            onListImg.style.width = "100%";
+            onListImg.style.height = "auto";
+            onListImg.style.position = "relative";
+            onListImg.style.top = "0";
+            onListImg.style.left = "0";
+            onListImg.style.transform = "translate(0, 0)";
+        }
+    })
+}
 
 
 let tabContsHeight;
@@ -220,6 +247,29 @@ for(let i = 0; i < otherTabMenu.length; i++){
             otherTabList[i].style.transform = "translateY(0)";
         }, 10);
 
+        // 썸네일 이미지의 높이값이 작은 경우 이미지의 css 변경
+        if(otherTabList[i].classList.contains("on")){
+            otherTabList[i].querySelectorAll("img").forEach(function(onListImg){
+                if(onListImg.offsetHeight < onListImg.parentElement.offsetHeight){
+                    onListImg.style.transition = "all 0s";
+                    onListImg.style.width = "auto";
+                    onListImg.style.height = "100%";
+                    onListImg.style.position = "absolute";
+                    onListImg.style.top = "50%";
+                    onListImg.style.left = "50%";
+                    onListImg.style.transform = "translate(-50%, -50%)";
+                }
+                else {
+                    onListImg.style.transition = "all 0.5s";
+                    onListImg.style.width = "100%";
+                    onListImg.style.height = "auto";
+                    onListImg.style.position = "relative";
+                    onListImg.style.top = "0";
+                    onListImg.style.left = "0";
+                    onListImg.style.transform = "translate(0, 0)";
+                }
+            })
+        }
 
         // 선택한 리스트들의 높이값에 맞춰 부모창의 높이가 지정됨
         tabContsHeight = otherTabConts.querySelector(".on").offsetHeight;
@@ -231,7 +281,6 @@ for(let i = 0; i < otherTabMenu.length; i++){
         }
     }
 }
-
 
 // 탭 컨텐츠를 클릭하면 모달창 제어 및 모달창 콘텐츠 변경
 for(let a = 0; a < otherTabList.length; a++){
@@ -283,6 +332,31 @@ for(let a = 0; a < otherTabList.length; a++){
                     const modalImgs = otherModalImgWrap.querySelectorAll(".cont4.otherWork .modal .left img");
                     
                     modalImgs[0].classList.add("on");
+
+
+                    // 모달창의 큰 이미지의 갯수가 1개일 때, 큰 이미지 영역보다 이미지의 높이값이 작다면 style 변경
+                    if(modalImgs.length === 1){
+                        modalImgs[0].onload = function(){
+                            if(modalImgs[0].offsetHeight < modalImgs[0].parentElement.offsetHeight){
+                                modalImgs[0].style.transition = "all 0s";
+                                modalImgs[0].style.width = "auto";
+                                modalImgs[0].style.height = "100%";
+                                modalImgs[0].style.position = "absolute";
+                                modalImgs[0].style.top = "50%";
+                                modalImgs[0].style.left = "50%";
+                                modalImgs[0].style.transform = "translate(-50%, -50%)";
+                            }
+                            else {
+                                modalImgs[0].style.transition = "all 0.5s";
+                                modalImgs[0].style.width = "100%";
+                                modalImgs[0].style.height = "auto";
+                                modalImgs[0].style.position = "relative";
+                                modalImgs[0].style.top = "0";
+                                modalImgs[0].style.left = "0";
+                                modalImgs[0].style.transform = "translate(0, 0)";
+                            }
+                        }
+                    }
 
 
                     // 오른쪽 버튼 눌렀을 때 이미지 넘어감
@@ -449,6 +523,10 @@ for(let a = 0; a < otherTabList.length; a++){
         }
     }
 }
+
+
+
+
 
 // 모달창에서 컨텐츠 바깥을 누르면 모달창 닫힘
 otherModal.onclick = function(e){

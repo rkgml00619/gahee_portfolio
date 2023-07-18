@@ -709,7 +709,8 @@
             }
             .left { 
                 width: 70%; height: 100%;
-                overflow: auto;
+                overflow: hidden;
+                overflow-y: auto;
                 position: relative;
                 background: #fff;
                 -ms-overflow-style: none;
