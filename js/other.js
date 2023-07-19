@@ -101,7 +101,7 @@ let otherWorkData = [
 
             {title: "주한상", thumbImg: "logo/juhansang_thumb.jpg", imgAll: ["logo/juhansang.jpg"], classific: ["분류", "설명"],  context: ["로고 디자인", "한식 음식점인 주한상의 브랜드 로고를 디자인하였습니다."]},
 
-            {title: "수라 곳간", thumbImg: "logo/sura_thumb.jpg.jpg", imgAll: ["logo/sura"], classific: ["분류", "설명"],  context: ["로고 디자인", "한식 음식점인 수라 곳간의 브랜드 로고를 디자인하였습니다."]},
+            {title: "수라 곳간", thumbImg: "logo/sura_thumb.jpg", imgAll: ["logo/sura"], classific: ["분류", "설명"],  context: ["로고 디자인", "한식 음식점인 수라 곳간의 브랜드 로고를 디자인하였습니다."]},
         ]
     },
     {
