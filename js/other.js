@@ -51,7 +51,7 @@ let otherWorkData = [
             ], 
             classific: ["제작방식", "소요기간", "컨셉설명"], context: ["디자인 시안 제작", "총 1주", "선생님 또는 관련 기관들이 주 이용자로써 깔끔하게 정리된 디자인으로 쉽고 빠르게 원하는 목적 페이지에 도달할 수 있도록 하는 것을 최우선으로 작업하였습니다."]},
             
-            {title: "안닥 어플리케이션", thumbImg:"homepage/andoc/andoc1_thumb.jpg", 
+            {title: "안닥 홈페이지", thumbImg:"homepage/andoc/andoc1_thumb.jpg", 
             imgAll: [
                 "homepage/andoc/andoc1.jpg", 
                 "homepage/andoc/andoc2.png", 
@@ -62,6 +62,12 @@ let otherWorkData = [
                 "homepage/andoc/andoc7.png", 
                 "homepage/andoc/andoc8.png",
                 "homepage/andoc/andoc9.png",
+            ], 
+            classific: ["제작방식", "소요기간", "컨셉설명"], context: ["디자인 시안 제작", "총 2주", "어플리케이션 기능 소개를 우선으로 디자인하였으며, 각 섹션별로 세부 설명 페이지로 넘어갈 수 있도록 화면을 구성하였습니다."]},
+            
+            {title: "안닥 어플리케이션", thumbImg:"detailPage/andoc_img/andoc_thumb.jpg", 
+            imgAll: [
+                "detailPage/andoc_img/andoc_1.jpg", 
             ], 
             classific: ["제작방식", "소요기간", "컨셉설명"], context: ["디자인 시안 제작", "총 2주", "어플리케이션 기능 소개를 우선으로 디자인하였으며, 각 섹션별로 세부 설명 페이지로 넘어갈 수 있도록 화면을 구성하였습니다."]},
             
