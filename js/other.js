@@ -95,12 +95,13 @@ let otherWorkData = [
 
             {title: "클리닝 에어 시스템", thumbImg: "logo/cleaning_thumb.jpg", imgAll: ["logo/cleaning.jpg"], classific: ["분류", "설명"],  context: ["로고 디자인", "청소 업체의 로고 디자인으로 버블을 이미지화 하여 깨끗한 느낌의 로고를 제작하였습니다."]},
 
-            {title: "주한상", thumbImg: "logo/juhansang.jpg", imgAll: ["logo/juhansang_thumb.jpg"], classific: ["분류", "설명"],  context: ["로고 디자인", "한식 음식점인 주한상의 브랜드 로고를 디자인하였습니다."]},
+            {title: "주한상", thumbImg: "logo/juhansang_thumb.jpg", imgAll: ["logo/juhansang.jpg"], classific: ["분류", "설명"],  context: ["로고 디자인", "한식 음식점인 주한상의 브랜드 로고를 디자인하였습니다."]},
 
-            {title: "마켓 235", thumbImg: "logo/market_logo.jpg", imgAll: ["logo/market_logo_thumb.jpg"], classific: ["분류", "설명"],  context: ["로고 디자인", "식재료 전문 판매 사이트인 마켓 235의 브랜드 로고를 디자인하였습니다."]},
-            {title: "주한상", thumbImg: "logo/juhansang.jpg", imgAll: ["logo/juhansang_thumb.jpg"], classific: ["분류", "설명"],  context: ["로고 디자인", "한식 음식점인 주한상의 브랜드 로고를 디자인하였습니다."]},
+            {title: "마켓 235", thumbImg: "logo/market_logo_thumb.jpg", imgAll: ["logo/market_logo.jpg"], classific: ["분류", "설명"],  context: ["로고 디자인", "식재료 전문 판매 사이트인 마켓 235의 브랜드 로고를 디자인하였습니다."]},
 
-            {title: "수라 곳간", thumbImg: "logo/sura.jpg", imgAll: ["logo/sura_thumb.jpg"], classific: ["분류", "설명"],  context: ["로고 디자인", "한식 음식점인 수라 곳간의 브랜드 로고를 디자인하였습니다."]},
+            {title: "주한상", thumbImg: "logo/juhansang_thumb.jpg", imgAll: ["logo/juhansang.jpg"], classific: ["분류", "설명"],  context: ["로고 디자인", "한식 음식점인 주한상의 브랜드 로고를 디자인하였습니다."]},
+
+            {title: "수라 곳간", thumbImg: "logo/sura_thumb.jpg.jpg", imgAll: ["logo/sura"], classific: ["분류", "설명"],  context: ["로고 디자인", "한식 음식점인 수라 곳간의 브랜드 로고를 디자인하였습니다."]},
         ]
     },
     {
