@@ -89,9 +89,18 @@ let otherWorkData = [
 
             {title: "더블원스튜디오 제품", thumbImg: "detailPage/doubleOne_thumb.jpg", imgAll: ["detailPage/doubleOne.jpg"], classific: ["분류", "설명"],  context: ["상세페이지", "더블원스튜디오는 심플하고 페미닌한 컨셉의 여성 의류 브랜드로 군더더기 없이 깔끔한 느낌을 추구하였습니다."]},
 
-            {title: "BEIFFE LOGO", thumbImg: "logo/beiffe1_thumb.jpg", imgAll: ["logo/beiffe1.jpg"], classific: ["분류", "설명"],  context: ["로고 디자인", "BEIFFE LOGO DESIGN"]},
+            {title: "BEIFFE", thumbImg: "logo/beiffe1_thumb.jpg", imgAll: ["logo/beiffe1.jpg"], classific: ["분류", "설명"],  context: ["로고 디자인", "BEIFFE LOGO DESIGN"]},
 
-            {title: "유튜브 채널 로고", thumbImg: "logo/beiffe1_thumb.jpg", imgAll: ["logo/youtube_logo.jpg"], classific: ["분류", "설명"],  context: ["로고 디자인", "유튜브의 재생목록 카테고리에 맞는 로고를 제작하였습니다. 하나의 유튜브 채널에서 사용되기에 전체적인 통일감은 유지하고, 카테고리를 한눈에 파악할 수 있도록 디자인하였습니다."]},
+            {title: "유튜브 채널", thumbImg: "logo/youtube_logo_thumb.jpg", imgAll: ["logo/youtube_logo.jpg"], classific: ["분류", "설명"],  context: ["로고 디자인", "유튜브의 재생목록 카테고리에 맞는 로고를 제작하였습니다. 하나의 유튜브 채널에서 사용되기에 전체적인 통일감은 유지하고, 카테고리를 한눈에 파악할 수 있도록 디자인하였습니다."]},
+
+            {title: "클리닝 에어 시스템", thumbImg: "logo/cleaning_thumb.jpg", imgAll: ["logo/cleaning.jpg"], classific: ["분류", "설명"],  context: ["로고 디자인", "청소 업체의 로고 디자인으로 버블을 이미지화 하여 깨끗한 느낌의 로고를 제작하였습니다."]},
+
+            {title: "주한상", thumbImg: "logo/juhansang.jpg", imgAll: ["logo/juhansang_thumb.jpg"], classific: ["분류", "설명"],  context: ["로고 디자인", "한식 음식점인 주한상의 브랜드 로고를 디자인하였습니다."]},
+
+            {title: "마켓 235", thumbImg: "logo/market_logo.jpg", imgAll: ["logo/market_logo_thumb.jpg"], classific: ["분류", "설명"],  context: ["로고 디자인", "식재료 전문 판매 사이트인 마켓 235의 브랜드 로고를 디자인하였습니다."]},
+            {title: "주한상", thumbImg: "logo/juhansang.jpg", imgAll: ["logo/juhansang_thumb.jpg"], classific: ["분류", "설명"],  context: ["로고 디자인", "한식 음식점인 주한상의 브랜드 로고를 디자인하였습니다."]},
+
+            {title: "수라 곳간", thumbImg: "logo/sura.jpg", imgAll: ["logo/sura_thumb.jpg"], classific: ["분류", "설명"],  context: ["로고 디자인", "한식 음식점인 수라 곳간의 브랜드 로고를 디자인하였습니다."]},
         ]
     },
     {
