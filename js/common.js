@@ -1,6 +1,7 @@
 // 반응형 화면 사이즈 확인
 const pc = matchMedia("screen and (min-width: 1201px)");
 const tablet = matchMedia("screen and (max-width: 1200px)");
+const tablet_vertical = matchMedia("screen and (max-width: 821px)");
 const mobile = matchMedia("screen and (max-width: 768px)");
 
 const section = document.querySelectorAll("#container > div");

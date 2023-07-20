@@ -31,23 +31,7 @@ let otherWorkData = [
 
             {title: "평택시 청소년 진로지원센터", thumbImg:"homepage/teenager/teenager_1_thumb.jpg", 
             imgAll: [
-                "homepage/teenager/teenager_1.jpg", 
-                "homepage/teenager/teenager_2.jpg", 
-                "homepage/teenager/teenager_3.jpg", 
-                "homepage/teenager/teenager_4.jpg", 
-                "homepage/teenager/teenager_5.jpg", 
-                "homepage/teenager/teenager_6.jpg", 
-                "homepage/teenager/teenager_7.jpg", 
-                "homepage/teenager/teenager_8.jpg",
-                "homepage/teenager/teenager_9.jpg",
-                "homepage/teenager/teenager_10.jpg",
-                "homepage/teenager/teenager_11.jpg",
-                "homepage/teenager/teenager_12.jpg",
-                "homepage/teenager/teenager_13.jpg",
-                "homepage/teenager/teenager_14.jpg",
-                "homepage/teenager/teenager_15.jpg",
-                "homepage/teenager/teenager_16.jpg",
-                "homepage/teenager/teenager_17.jpg",
+                "homepage/teenager/teenager_1.jpg"
             ], 
             classific: ["제작방식", "소요기간", "컨셉설명"], context: ["디자인 시안 제작", "총 1주", "선생님 또는 관련 기관들이 주 이용자로써 깔끔하게 정리된 디자인으로 쉽고 빠르게 원하는 목적 페이지에 도달할 수 있도록 하는 것을 최우선으로 작업하였습니다."]},
             
@@ -65,10 +49,8 @@ let otherWorkData = [
             ], 
             classific: ["제작방식", "소요기간", "컨셉설명"], context: ["디자인 시안 제작", "총 2주", "어플리케이션 기능 소개를 우선으로 디자인하였으며, 각 섹션별로 세부 설명 페이지로 넘어갈 수 있도록 화면을 구성하였습니다."]},
             
-            {title: "안닥 어플리케이션", thumbImg:"detailPage/andoc_img/andoc_thumb.jpg", 
-            imgAll: [
-                "detailPage/andoc_img/andoc_1.jpg", 
-            ], 
+            {title: "안닥 어플리케이션", thumbImg:"homepage/andoc_img/andoc_thumb.png", 
+            imgAll: [], 
             classific: ["제작방식", "소요기간", "컨셉설명"], context: ["디자인 시안 제작", "총 2주", "어플리케이션 기능 소개를 우선으로 디자인하였으며, 각 섹션별로 세부 설명 페이지로 넘어갈 수 있도록 화면을 구성하였습니다."]},
             
             {title: "곤충산업중앙회", thumbImg:"homepage/bug_thumb.jpg", 
@@ -107,7 +89,7 @@ let otherWorkData = [
 
             {title: "주한상", thumbImg: "logo/juhansang_thumb.jpg", imgAll: ["logo/juhansang.jpg"], classific: ["분류", "설명"],  context: ["로고 디자인", "한식 음식점인 주한상의 브랜드 로고를 디자인하였습니다."]},
 
-            {title: "수라 곳간", thumbImg: "logo/sura_thumb.jpg", imgAll: ["logo/sura"], classific: ["분류", "설명"],  context: ["로고 디자인", "한식 음식점인 수라 곳간의 브랜드 로고를 디자인하였습니다."]},
+            {title: "수라 곳간", thumbImg: "logo/sura_thumb.jpg", imgAll: ["logo/sura.jpg"], classific: ["분류", "설명"],  context: ["로고 디자인", "한식 음식점인 수라 곳간의 브랜드 로고를 디자인하였습니다."]},
         ]
     },
     {
@@ -198,31 +180,6 @@ const otherTabList = document.querySelectorAll(".cont4.otherWork .otherWorkWrap 
 otherTabList[0].classList.add("on");
 otherTabMenu[0].classList.add("on");
 
-// 썸네일 이미지의 높이값이 작은 경우 이미지의 css 변경
-if(otherTabList[0].classList.contains("on")){
-    otherTabList[0].querySelectorAll("img").forEach(function(onListImg){
-        if(onListImg.offsetHeight < onListImg.parentElement.offsetHeight){
-            onListImg.style.transition = "all 0s";
-            onListImg.style.width = "auto";
-            onListImg.style.height = "100%";
-            onListImg.style.position = "absolute";
-            onListImg.style.top = "50%";
-            onListImg.style.left = "50%";
-            onListImg.style.transform = "translate(-50%, -50%)";
-        }
-        else {
-            onListImg.style.transition = "all 0.5s";
-            onListImg.style.width = "100%";
-            onListImg.style.height = "auto";
-            onListImg.style.position = "relative";
-            onListImg.style.top = "0";
-            onListImg.style.left = "0";
-            onListImg.style.transform = "translate(0, 0)";
-        }
-    })
-}
-
-
 let tabContsHeight;
 
 window.addEventListener("load", function(){
@@ -234,6 +191,30 @@ window.addEventListener("load", function(){
     else {
         otherWork.style.height = tabContsHeight + 750 + "px";
     }
+
+    // 썸네일 이미지의 높이값이 작은 경우 이미지의 css 변경
+    if(otherTabList[0].classList.contains("on")){
+        otherTabList[0].querySelectorAll("img").forEach(function(onListImg){
+            if(onListImg.offsetHeight < onListImg.parentElement.offsetHeight){
+                onListImg.style.transition = "all 0s";
+                onListImg.style.width = "auto";
+                onListImg.style.height = "100%";
+                onListImg.style.position = "absolute";
+                onListImg.style.top = "50%";
+                onListImg.style.left = "50%";
+                onListImg.style.transform = "translate(-50%, -50%)";
+            }
+            else {
+                onListImg.style.transition = "all 0.5s";
+                onListImg.style.width = "100%";
+                onListImg.style.height = "auto";
+                onListImg.style.position = "relative";
+                onListImg.style.top = "0";
+                onListImg.style.left = "0";
+                onListImg.style.transform = "translate(0, 0)";
+            }
+        })
+    }
 });
 window.addEventListener("resize", function(){
     // 처음 화면에서 랩리스트의 부모높이를 지정함
@@ -243,6 +224,30 @@ window.addEventListener("resize", function(){
     }
     else {
         otherWork.style.height = tabContsHeight + 750 + "px";
+    }
+
+    // 썸네일 이미지의 높이값이 작은 경우 이미지의 css 변경
+    if(otherTabList[0].classList.contains("on")){
+        otherTabList[0].querySelectorAll("img").forEach(function(onListImg){
+            if(onListImg.offsetHeight < onListImg.parentElement.offsetHeight){
+                onListImg.style.transition = "all 0s";
+                onListImg.style.width = "auto";
+                onListImg.style.height = "100%";
+                onListImg.style.position = "absolute";
+                onListImg.style.top = "50%";
+                onListImg.style.left = "50%";
+                onListImg.style.transform = "translate(-50%, -50%)";
+            }
+            else {
+                onListImg.style.transition = "all 0.5s";
+                onListImg.style.width = "100%";
+                onListImg.style.height = "auto";
+                onListImg.style.position = "relative";
+                onListImg.style.top = "0";
+                onListImg.style.left = "0";
+                onListImg.style.transform = "translate(0, 0)";
+            }
+        })
     }
 });
 
@@ -330,7 +335,7 @@ for(let a = 0; a < otherTabList.length; a++){
                 // 클릭한 컨텐츠의 타이틀을 데이터에서 찾은 후 타이틀이 있는 순번째의 데이터들만 삽입함
                 if(otherWorkData[a].data[i].title === findText){
                     otherModalImgWrap.innerHTML = "";
-
+                    
                     // 이미지 갯수에 따라 이미지 태그 생성 및 경로 삽입
                     for(let h = 0; h < otherWorkData[a].data[i].imgAll.length; h++){
                         let otherModalImg = document.createElement("img");
@@ -340,7 +345,18 @@ for(let a = 0; a < otherTabList.length; a++){
                         otherModalImg.src = `img/other/${otherWorkData[a].data[i].imgAll[h]}`;
                     }
 
-                    if(otherWorkData[a].data[i].imgAll.length > 1){
+                    if(findText.includes("어플리케이션")){
+                        // 이미지 갯수에 따라 이미지 태그 생성 및 경로 삽입
+                        for(let h = 1; h < 40; h++){
+                            let otherModalImg = document.createElement("img");
+                            otherModalImg.setAttribute("class", "modalImg");
+                            otherModalImgWrap.append(otherModalImg);
+    
+                            otherModalImg.src = `img/other/homepage/andoc_img/andoc${h}.png`;
+                        }
+                    }
+
+                    if(otherWorkData[a].data[i].imgAll.length > 1 || findText.includes("어플리케이션")){
                         modalImgPrev.style.display = "flex";
                         modalImgNext.style.display = "flex";
                     }
@@ -349,9 +365,8 @@ for(let a = 0; a < otherTabList.length; a++){
                     
                     modalImgs[0].classList.add("on");
 
-
                     // 모달창의 큰 이미지의 갯수가 1개일 때, 큰 이미지 영역보다 이미지의 높이값이 작다면 style 변경
-                    if(modalImgs.length === 1){
+                    if(modalImgs.length === 1 && pc.matches && !tablet_vertical.matches){
                         modalImgs[0].onload = function(){
                             if(modalImgs[0].offsetHeight < modalImgs[0].parentElement.offsetHeight){
                                 modalImgs[0].style.transition = "all 0s";
@@ -372,6 +387,30 @@ for(let a = 0; a < otherTabList.length; a++){
                                 modalImgs[0].style.transform = "translate(0, 0)";
                             }
                         }
+                    }
+                    else if(findText.includes("어플리케이션") && pc.matches && !tablet_vertical.matches){
+                        modalImgs.forEach(function(modalImgs){
+                            modalImgs.onload = function(){
+                                if(modalImgs.offsetHeight < modalImgs.parentElement.offsetHeight){
+                                    modalImgs.style.transition = "all 0s";
+                                    modalImgs.style.width = "auto";
+                                    modalImgs.style.height = "100%";
+                                    modalImgs.style.position = "absolute";
+                                    modalImgs.style.top = "50%";
+                                    modalImgs.style.left = "50%";
+                                    modalImgs.style.transform = "translate(-50%, -50%)";
+                                }
+                                else {
+                                    modalImgs.style.transition = "all 0.5s";
+                                    modalImgs.style.width = "100%";
+                                    modalImgs.style.height = "auto";
+                                    modalImgs.style.position = "relative";
+                                    modalImgs.style.top = "0";
+                                    modalImgs.style.left = "0";
+                                    modalImgs.style.transform = "translate(0, 0)";
+                                }
+                            }
+                        });
                     }
 
 
@@ -512,13 +551,25 @@ for(let a = 0; a < otherTabList.length; a++){
                         contentText.innerText = otherWorkData[a].data[i].context[h];
                     }
                     
-                    if(tablet.matches){
-                        modalImgArrowWrap.style.position = "sticky";
-                        modalImgArrowWrap.style.top = "calc(100% - 50px)";
+                    if(tablet.matches && !tablet.matches){
+                        modalImgArrowWrap.style.top = "0";
+                        modalImgArrowWrap.style.right = "calc(40%)";
+                        modalImgArrowWrap.style.position = "absolute";
+                    }
+                    else if(tablet_vertical.matches){
+                        modalImgArrowWrap.style.position = "absolute";
+                        modalImgArrowWrap.style.top = "0";
+                        modalImgArrowWrap.style.right = "0";
+                        modalImgArrowWrap.parentElement.onscroll = function(){
+                            modalImgArrowWrap.style.position = "sticky";
+                            if(modalImgArrowWrap.parentElement.scrollTop <= 50){
+                                modalImgArrowWrap.style.position = "absolute";
+                            }
+                        }
                     }
                     else {
                         modalImgArrowWrap.style.top = "0";
-                        modalImgArrowWrap.style.right = "calc(30% + 4px)";
+                        modalImgArrowWrap.style.right = "calc(30%)";
                         modalImgArrowWrap.style.position = "absolute";
                     }
                 }
@@ -546,8 +597,9 @@ for(let a = 0; a < otherTabList.length; a++){
 
 // 모달창에서 컨텐츠 바깥을 누르면 모달창 닫힘
 otherModal.onclick = function(e){
-
     if(e.target.classList.contains("modal")){
+        document.querySelector("body").style.overflow = "auto";
+
         otherModal.style.opacity = "0";
 
         setTimeout(function(){
