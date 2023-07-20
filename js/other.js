@@ -556,7 +556,7 @@ for(let a = 0; a < otherTabList.length; a++){
                         modalImgArrowWrap.style.right = "calc(40%)";
                         modalImgArrowWrap.style.position = "absolute";
                     }
-                    else if(tablet_vertical.matches){
+                    else if(tablet_vertical.matches || mobile.matches){
                         modalImgArrowWrap.style.position = "absolute";
                         modalImgArrowWrap.style.top = "0";
                         modalImgArrowWrap.style.right = "0";
