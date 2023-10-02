@@ -156,7 +156,7 @@ portfolioConts.forEach(function(portfolioConts, idx){
         portfolioConts.querySelectorAll(".right .responBtn .btn")[i].onclick = function(e){
             e.preventDefault();
 
-            let url = ["https://bubbly-pillar-393101.du.r.appspot.com/", "https://mlb-pet.du.r.appspot.com/", "https://poke-all-day.du.r.appspot.com/"];
+            let url = ["https://koreavisit.du.r.appspot.com/", "https://mlbpet.du.r.appspot.com/", "https://pokeallday.du.r.appspot.com/"];
 
             if(portfolioConts.querySelectorAll(".right .responBtn .btn")[i].classList.contains("pc")){
                 window.open(url[idx], "", "width=1920,height=1080", "top=0,left=0");
